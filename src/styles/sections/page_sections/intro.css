@@ -1,0 +1,10 @@
+#intro {
+    display: flex;
+    align-items: center;
+    padding-top: 6rem !important;
+}
+.intro-pic > img {
+    height: 100%;
+    width: 80%;
+    border-radius: 100%;
+}
