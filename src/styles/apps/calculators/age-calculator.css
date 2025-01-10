@@ -1,0 +1,38 @@
+#result-container {
+    background-color: #DFE6FD;
+    padding: .8rem;
+    border-radius: 10px;
+}
+#result-container .age-summary > div {
+    border-radius: 10px 10px 0px 0px;
+    color: #FFF !important;
+}
+#result-container .age-details > div{
+    border-radius: 0px 0px 10px 10px;
+}
+#result-container .next-birthday > div {
+    border-radius: 10px;
+}
+#result-container .age-summary > div {
+    background-color: #0B258E;
+}
+#result-container .next-birthday > div {
+    background-color: #FAECB3;
+}
+
+#result-container .age-summary .summary-box {
+    border-radius: 5px;
+    padding: 4px;
+    font-weight: bold;
+}
+#result-container .age-summary .summary-box:nth-child(1) {
+    background-color: #fb8500;
+    color: black;
+}
+#result-container .age-summary .summary-box:nth-child(2) {
+    background-color: #2a9d8f;
+}
+#result-container .age-summary .summary-box:nth-child(3) {
+    background-color: #a7c957;
+    color: black;
+}
