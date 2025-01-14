@@ -6,7 +6,6 @@ import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import Apps from './views/pages/apps';
 import SimpleCalculator from './views/workplace/apps/calculators/simple-calculators';
 import TicTacToe from './views/workplace/games/tic-tac-toe/tic-tac-toe';
-import RoleGrid from './views/workplace/apps/calculators/test_grid';
 import Games from './views/pages/games';
 import AgeCalculator from './views/workplace/apps/calculators/age-calculator';
 
@@ -28,7 +27,6 @@ function App() {
             title: "BMI Calculator",
             description: "",
             type: "calculators",
-            component: <RoleGrid/>
         },
         {
             title: "Age Calculator",
