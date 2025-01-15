@@ -8,6 +8,9 @@ import SimpleCalculator from './views/workplace/apps/calculators/simple-calculat
 import TicTacToe from './views/workplace/games/tic-tac-toe/tic-tac-toe';
 import Games from './views/pages/games';
 import AgeCalculator from './views/workplace/apps/calculators/age-calculator';
+import ColorConverter from './views/workplace/apps/converters/color-codes';
+import RandomColorGenerator from './views/workplace/apps/generators/random-color';
+import AccessibleColorGenerator from './views/workplace/apps/generators/accessible-color';
 
 function App() {
   const workplace = {
@@ -78,6 +81,24 @@ function App() {
             title: "Time Converter",
             description: "",
             type: "converters"
+        },
+        {
+            title: "Color Code Converter",
+            description: "",
+            type: "converters",
+            component: <ColorConverter/>
+        },
+        {
+            title: "Random Color Generator",
+            description: "",
+            type: "generators",
+            component: <RandomColorGenerator/>
+        },
+        {
+            title: "Random Accessible Color Generator",
+            description: "",
+            type: "generators",
+            component: <AccessibleColorGenerator/>
         }
 
     ], 
