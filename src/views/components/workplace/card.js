@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
+import { FaCode, FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function Card({sectionName, workplaceSection}) {
@@ -23,10 +24,14 @@ export default function Card({sectionName, workplaceSection}) {
                                 </Row>
                                 <Row className="d-flex align-items-end">
                                     <Col lg={6} sm={6} xs={6} className="p-0">
-                                        <Button as={Link} to={`/workplace/${sectionName}/${section.type ? section.type : section.title.toLowerCase()}`} variant="dark" data-type={section.type}>View</Button>
+                                        <Button as={Link} to={`/workplace/${sectionName}/${section.type ? section.type : section.title.toLowerCase()}`} variant="dark" data-type={section.type}>
+                                            <FaEye />
+                                        </Button>
                                     </Col>
                                     <Col lg={6} sm={6} xs={6} className="p-0">
-                                        <Button variant="dark">Code</Button>
+                                        <Button variant="dark">
+                                            <FaCode />
+                                        </Button>
                                     </Col>
                                 </Row>
                             </Container>
