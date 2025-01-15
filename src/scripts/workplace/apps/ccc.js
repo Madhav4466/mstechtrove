@@ -23,7 +23,10 @@ export default class ColorContrastChecker {
         //const [lighter, darker] = l1 < l2 ? [l2, l1] : [l1, l2];
         const lighter = Math.max(l1, l2);
         const darker = Math.min(l1, l2);
-        return (lighter + 0.05) / (darker + 0.05);
+        const cc = (lighter + 0.05) / (darker + 0.05);
+        const roundedCC = Math.ceil(cc * 100)/100;
+        return roundedCC.toFixed(2);
+
     }
 
     static isColorCompliant(foreground, background) {
