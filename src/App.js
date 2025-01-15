@@ -53,6 +53,11 @@ function App() {
             type: "calculators"
         },
         {
+            title: "Color Contrast Checker",
+            description: "",
+            type: "calculators"
+        },
+        {
             title: "Temprature Converter",
             description: "",
             type: "converters"
