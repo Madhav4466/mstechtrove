@@ -1,5 +1,5 @@
 export default class ColorContrastChecker {
-    #rgbToLinear(c) {
+    static rgbToLinear(c) {
         c = c/255;
         if(c <= 0.03928){
             return c/12.92;
@@ -9,7 +9,7 @@ export default class ColorContrastChecker {
         }
     }
 
-    #getLuminance(r, g, b) {
+    static getLuminance(r, g, b) {
         r = this.rgbToLinear(r);
         g = this.rgbToLinear(g);
         b = this.rgbToLinear(b);
