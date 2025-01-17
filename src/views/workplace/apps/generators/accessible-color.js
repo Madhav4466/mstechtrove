@@ -29,12 +29,13 @@ export default function AccessibleColorGenerator() {
         const {foreground, background} = ColorGenerator.generateCompliantRandomColors();
         const contrastRatio = ColorContrastChecker.getContrastRatio(foreground, background);
         if(colorType !== "rgb") {
-            const rgbBG = ColorCodeConverter.convertRGBToHex(...background);
-            const rgbFG = ColorCodeConverter.convertRGBToHex(...foreground);
+            const rgbBG = ColorCodeConverter.convertRGBToHex(`rgb(${background.join(",")})`);
+            const rgbFG = ColorCodeConverter.convertRGBToHex(`rgb(${foreground.join(",")})`);
+            console.log(rgbBG)
             setNewResult(rgbFG, rgbBG, contrastRatio)
         }
         else {
-            setNewResult(foreground, background, contrastRatio);   
+            setNewResult(`rgb(${background.join(",")})`, `rgb(${foreground.join(",")})`, contrastRatio);   
         }
     }
 
@@ -42,16 +43,16 @@ export default function AccessibleColorGenerator() {
         if(result && result.background && result.foreground) {
             if(colorType === "rgb") {
                 setColorType('hex');
-                const hexBG = ColorCodeConverter.convertRGBToHex(...result.background);
-                const hexFG = ColorCodeConverter.convertRGBToHex(...result.foreground);
-                const contrastRatio = ColorContrastChecker.getContrastRatio(result.foreground, result.background);
+                const hexBG = ColorCodeConverter.convertRGBToHex(result.background);
+                const hexFG = ColorCodeConverter.convertRGBToHex(result.foreground);
+                const contrastRatio = ColorContrastChecker.getContrastRatio(convertRGBToArray(result.foreground), convertRGBToArray(result.background));
                 setNewResult(hexFG, hexBG, contrastRatio)
             }
             else {
                 setColorType('rgb')
                 const rgbBG = ColorCodeConverter.convertHexToRgb(result.background);
                 const rgbFG = ColorCodeConverter.convertHexToRgb(result.foreground);
-                const contrastRatio = ColorContrastChecker.getContrastRatio(rgbFG, rgbBG);
+                const contrastRatio = ColorContrastChecker.getContrastRatio(convertRGBToArray(rgbFG), convertRGBToArray(rgbBG));
                 setNewResult(rgbFG, rgbBG, contrastRatio)
             }
         }
@@ -59,8 +60,7 @@ export default function AccessibleColorGenerator() {
 
     const handleCopy = () => {
         if(result){
-            const {foreground, background} = getStyledResult(result.foreground, result.background);
-            const resultToCopy = JSON.stringify({"The Foreground color is ": foreground, "The background Color is": background, "The Contrast ratio is ": result.contrastRatio});
+            const resultToCopy = JSON.stringify({"The Foreground color is ": result.foreground, "The background Color is": result.background, "The Contrast ratio is ": result.contrastRatio});
             navigator.clipboard.writeText(resultToCopy).then(() => {
                 setIsCopied(true);
                 setTimeout(()=> {setIsCopied(false)}, 2000);
@@ -70,22 +70,12 @@ export default function AccessibleColorGenerator() {
 
     const applyColorToResult = () => {
         if(result && result.background && result.foreground){
-            if(result.background instanceof Array) {
-                return getStyledResult(result.foreground, result.background);
-            }
-            else {
-                const rgbBG = ColorCodeConverter.convertHexToRgb(result.background);
-                const rgbFG = ColorCodeConverter.convertHexToRgb(result.foreground);
-                return getStyledResult(rgbFG, rgbBG);
-            }
+            return {background: result.background, foreground: result.foreground}
         }
     }
 
-    const getStyledResult = (foreground, background) => {
-        if(colorType === "hex") {
-            return {background: result.background, foreground: result.foreground}
-        }
-        return {background: `rgb(${background[0]}, ${background[1]}, ${background[2]})`, foreground: `rgb(${foreground[0]}, ${foreground[1]}, ${foreground[2]})`}
+    const convertRGBToArray = (rgbValue) => {
+        return rgbValue.replace("rgb(", "").replace(")", "").split(",");
     }
 
     return(
