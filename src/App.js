@@ -11,6 +11,7 @@ import AgeCalculator from './views/workplace/apps/calculators/age-calculator';
 import ColorConverter from './views/workplace/apps/converters/color-codes';
 import RandomColorGenerator from './views/workplace/apps/generators/random-color';
 import AccessibleColorGenerator from './views/workplace/apps/generators/accessible-color';
+import ColorContrastCalculator from './views/workplace/apps/calculators/color-contrast';
 
 function App() {
   const workplace = {
@@ -63,7 +64,8 @@ function App() {
             title: "Color Contrast Checker",
             imageURL: "https://img.freepik.com/free-vector/graphic-design-color_24877-82129.jpg?t=st=1736938920~exp=1736942520~hmac=ef553d846a4a7910a968af63bd1311e4adf4085f18d5111f5fe07edfc1548fce&w=740",
             description: "",
-            type: "calculators"
+            type: "calculators",
+            component: <ColorContrastCalculator/>
         },
         {
             title: "Temprature Converter",
