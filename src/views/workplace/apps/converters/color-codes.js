@@ -26,21 +26,23 @@ export default function ColorConverter() {
     
     const handleConvert = () => {
         if(colorType !== "") {
-            const convertion = colorType === "rgb" ? ColorCodeConverter.convertRGBToHex(...colorValue.split(',')) : ColorCodeConverter.convertHexToRgb(colorValue);
+            const convertion = colorType === "rgb" ? ColorCodeConverter.convertRGBToHex(colorValue) : ColorCodeConverter.convertHexToRgb(colorValue);
             setResult(convertion);
         }
     }
 
     const applyColorToResult = () => {
         if(result !== ''){
-            if(result instanceof Array) {
-                const textColor = ColorGenerator.generatetCompliantForegroundColor(result);
-                return {background: `rgb(${result[0]}, ${result[1]}, ${result[2]})`, foreground: `rgb(${textColor[0]}, ${textColor[1]}, ${textColor[2]})`}
+            if(colorType && colorType === "rgb") {
+                const resultToRGB = ColorCodeConverter.convertHexToRgb(result);
+                const rgbValues = resultToRGB.replace('rgb(', '').replace(')', '').split(",");
+                const textColor = ColorGenerator.generatetCompliantForegroundColor(rgbValues);
+                return {background: resultToRGB, foreground: `rgb(${textColor.join(", ")})`}
             }
             else {
-                const resultToRGB = ColorCodeConverter.convertHexToRgb(result);
-                const textColor = ColorGenerator.generatetCompliantForegroundColor(resultToRGB);
-                return {background: `rgb(${resultToRGB[0]}, ${resultToRGB[1]}, ${resultToRGB[2]})`, foreground: `rgb(${textColor[0]}, ${textColor[1]}, ${textColor[2]})`}
+                const rgbValues = result.replace('rgb(', '').replace(')', '').split(",");
+                const textColor = ColorGenerator.generatetCompliantForegroundColor(rgbValues);
+                return {background: result, foreground: `rgb(${textColor.join(", ")})`}
             }
         }
     }
