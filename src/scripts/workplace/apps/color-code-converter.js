@@ -1,5 +1,7 @@
 export default class ColorCodeConverter {
-    static convertRGBToHex(r, g, b) {
+    static convertRGBToHex(rgbValue) {
+        const removeRGBInitials = rgbValue.replace('rgb(', '').replace(')', '').split(',');
+        let [r, g, b] = removeRGBInitials;
         r = Math.min(255, Math.max(0, r));
         g = Math.min(255, Math.max(0, g));
         b = Math.min(255, Math.max(0, b));
