@@ -13,13 +13,13 @@ export default function RandomColorGenerator() {
     
     const handleGenerate = () => {
         const color = ColorGenerator.generateRandomColor();
-        setResult(color);
+        colorType === 'rgb' ? setResult(`rgb(${color.join(',')})`) : setResult(ColorCodeConverter.convertRGBToHex(`rgb(${color.join(',')})`));
     }
 
     const convertColorType = () => {
         if(colorType === "rgb") {
             setColorType('hex');
-            const res = ColorCodeConverter.convertRGBToHex(...result);
+            const res = ColorCodeConverter.convertRGBToHex(result);
             setResult(res);
         }
         else {
@@ -30,7 +30,7 @@ export default function RandomColorGenerator() {
     }
 
     const handleCopy = () => {
-        const resultToCopy = colorType === "rgb" ? `rgb(${result[0]}, ${result[1]}, ${result[2]})`: result; 
+        const resultToCopy = colorType === "rgb" ? result: result; 
         navigator.clipboard.writeText(resultToCopy).then(() => {
             setIsCopied(true);
             setTimeout(()=> {setIsCopied(false)}, 2000);
@@ -39,14 +39,16 @@ export default function RandomColorGenerator() {
 
     const applyColorToResult = () => {
         if(result !== ''){
-            if(result instanceof Array) {
-                const textColor = ColorGenerator.generatetCompliantForegroundColor(result);
-                return {background: `rgb(${result[0]}, ${result[1]}, ${result[2]})`, foreground: `rgb(${textColor[0]}, ${textColor[1]}, ${textColor[2]})`}
+            if(colorType && colorType === "rgb") {
+                const rgbValues = result.replace('rgb(', '').replace(')', '').split(",");
+                const textColor = ColorGenerator.generatetCompliantForegroundColor(rgbValues);
+                return {background: result, foreground: `rgb(${textColor.join(", ")})`}
             }
             else {
                 const resultToRGB = ColorCodeConverter.convertHexToRgb(result);
-                const textColor = ColorGenerator.generatetCompliantForegroundColor(resultToRGB);
-                return {background: `rgb(${resultToRGB[0]}, ${resultToRGB[1]}, ${resultToRGB[2]})`, foreground: `rgb(${textColor[0]}, ${textColor[1]}, ${textColor[2]})`}
+                const rgbValues = resultToRGB.replace('rgb(', '').replace(')', '').split(",");
+                const textColor = ColorGenerator.generatetCompliantForegroundColor(rgbValues);
+                return {background: resultToRGB, foreground: `rgb(${textColor.join(", ")})`}
             }
         }
     }
@@ -62,10 +64,10 @@ export default function RandomColorGenerator() {
                             </Col>
                         </Form.Group>
                     </Row>
-                    { result !== '' ? 
+                    { result ? 
                         <Row className="justify-content-center text-start d-flex mt-3" >
                             <Col lg={12} className="p-4 d-flex align-items-center rounded" style={{background: applyColorToResult().background}}>
-                                <Col lg={4}>{colorType === 'rgb' ? `rgb(${result[0]}, ${result[1]}, ${result[2]})` : result}</Col>
+                                <Col lg={4}>{result}</Col>
                                 <Col lg={8} className="d-flex gap-2">
                                     <Button type="submit" variant="light" onClick={handleCopy} title="Copy Result">{isCopied ? <FaCheck /> :<FaRegCopy />}</Button>
                                     <Button type="submit" variant="light" onClick={convertColorType} title={colorType === 'rgb' ? "Convert to HEX" : "Convert to RGB"}><MdOutlineSwapHorizontalCircle /></Button>
