@@ -1,0 +1,8 @@
+.education-details .college-university-image img {
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    width: 100%;
+    border-radius: 20px !important;
+    border: solid 1px;
+    padding: 10px;
+}
