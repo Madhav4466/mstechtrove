@@ -4,6 +4,7 @@ import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaWhatsapp } from "react
 import { FaLocationDot, FaXTwitter } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
 import '../../styles/sections/footer.css'
+import Link from "next/link";
 
 export default function Footer() {
     return(
@@ -19,14 +20,14 @@ export default function Footer() {
                             <h2 className="h5">Quick Links</h2>
                         </Row>
                         <Row className="p-2">
-                            <Col lg={6}><a href="/#intro">Portfolio</a></Col>
-                            <Col lg={6}><a href="/#about-me">About</a></Col>
-                            <Col lg={6}><a href="/#education">Education</a></Col>
-                            <Col lg={6}><a href="/#skills">Skills</a></Col>
-                            <Col lg={6}><a href="/#experience">Experience</a></Col>
-                            <Col lg={6}><a href="/#projects">Projects</a></Col>
-                            <Col lg={6}><a href="/workplace">Workplace</a></Col>
-                            <Col lg={6}><a href="/#contact">Contact</a></Col>
+                            <Col lg={6}><Link href="/#intro">Portfolio</Link></Col>
+                            <Col lg={6}><Link href="/#about-me">About</Link></Col>
+                            <Col lg={6}><Link href="/#education">Education</Link></Col>
+                            <Col lg={6}><Link href="/#skills">Skills</Link></Col>
+                            <Col lg={6}><Link href="/#experience">Experience</Link></Col>
+                            <Col lg={6}><Link href="/#projects">Projects</Link></Col>
+                            <Col lg={6}><Link href="/workplace">Workplace</Link></Col>
+                            <Col lg={6}><Link href="/#contact">Contact</Link></Col>
                         </Row>
                     </Col>
                     <Col lg={3} className="footer-contact text-start">
