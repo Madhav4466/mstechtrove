@@ -17,7 +17,7 @@ export default function Intro() {
                 <Col lg={6} className="text-center">
                     <Row>
                         <h1>
-                            <span className="text-body-secondary h5">Hello, I'm</span><br aria-hidden="true"></br>
+                            <span className="text-body-secondary h5">Hello, I&apos;m</span><br aria-hidden="true"></br>
                             <span>Madhav Saraf</span>
                         </h1> 
                     </Row>
