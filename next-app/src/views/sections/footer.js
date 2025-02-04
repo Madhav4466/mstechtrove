@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return(
-        <footer className="col-12 text-bg-dark p-3">
+        <footer className="text-bg-dark p-3 mt-auto d-flex px-0 align-items-center">
             <Container>
                 <Row className="justify-content-center p-2">
                     <Col lg={6}><p className="m-0 text-start"></p></Col>
