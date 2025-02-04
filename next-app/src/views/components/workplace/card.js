@@ -1,7 +1,7 @@
+import Link from "next/link";
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { FaCode, FaEye } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 export default function Card({sectionName, workplaceSection}) {
     return(
