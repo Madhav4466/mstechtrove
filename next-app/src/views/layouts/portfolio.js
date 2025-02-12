@@ -6,8 +6,8 @@ import Footer from "../sections/footer";
 export default function PortfolioLayout({...props}) {
     return(
         <>
-            <HeaderNav primaryNavigation={ props.primaryNavigation }></HeaderNav>
-            <MainContent sections={ props.mainContent }/>
+            <HeaderNav>{props.primaryNavigation}</HeaderNav>
+            <MainContent>{props.mainContent}</MainContent>
             <Footer/>
         </>
     );

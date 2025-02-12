@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function HeaderNav({...props}) {
+export default function HeaderNav({children, ...props}) {
     return(
         <header>
-            {props.primaryNavigation}
+            {children}
         </header>
     );
 }
