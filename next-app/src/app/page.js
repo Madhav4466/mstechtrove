@@ -1,5 +1,4 @@
 'use client'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import PrimaryNavigation from "@/views/components/primary-nav";
 import PortfolioLayout from "@/views/layouts/portfolio";
 import PortfolioNav from '@/views/components/portfolio_nav';
