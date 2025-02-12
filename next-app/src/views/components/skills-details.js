@@ -12,7 +12,7 @@ export default function SkillDetails({skills}) {
                                 <Col key={setId} lg={2} sm={4} xs={6} className="justify-content-center p-1" role="listitem">
                                     <Container className="p-3 card-elevated">
                                         <Row className="mb-4">
-                                            <Col lg={12}>
+                                            <Col lg={12} className="d-flex justify-content-center">
                                                 <img src={set.logo} alt="" style={{"height": "100%", "width": "50%"}}/>
                                             </Col>
                                         </Row>
