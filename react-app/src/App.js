@@ -12,6 +12,9 @@ import ColorConverter from './views/workplace/apps/converters/color-codes';
 import RandomColorGenerator from './views/workplace/apps/generators/random-color';
 import AccessibleColorGenerator from './views/workplace/apps/generators/accessible-color';
 import ColorContrastCalculator from './views/workplace/apps/calculators/color-contrast';
+import TicTacToeGame from './views/workplace/games/tic-tac-toe/modified-version/game';
+import PossibleAccessibleColors from './views/workplace/apps/generators/possible-compliant-colors';
+import ColorEnhancer from './views/workplace/apps/generators/color-enhancer';
 
 function App() {
   const workplace = {
@@ -123,15 +126,28 @@ function App() {
             description: "",
             type: "generators",
             component: <AccessibleColorGenerator/>
+        },
+        {
+            title: "Possible Accessible Color Generator",
+            imageURL: "https://img.freepik.com/free-vector/printing-industry-illustration_23-2148890131.jpg?t=st=1736938970~exp=1736942570~hmac=5ba2e053b3b9021cb9cccc0eec0cd21ed5f5cfa56b1daaf4d54a1142ea1a48d6&w=740",
+            description: "",
+            type: "generators",
+            component: <PossibleAccessibleColors/>
+        },
+        {
+            title: "Accessible Color Enhancer",
+            imageURL: "https://img.freepik.com/free-vector/printing-industry-illustration_23-2148890131.jpg?t=st=1736938970~exp=1736942570~hmac=5ba2e053b3b9021cb9cccc0eec0cd21ed5f5cfa56b1daaf4d54a1142ea1a48d6&w=740",
+            description: "",
+            type: "generators",
+            component: <ColorEnhancer/>
         }
-
     ], 
     games: [
         {
             title: "Tic-Tac-Toe",
             imageURL: "https://img.freepik.com/free-vector/hands-holding-pencils-play-tic-tac-toe-people-drawing-crosses-noughts-simple-game-children-flat-vector-illustration-strategy-concept-banner-website-design-landing-web-page_74855-24786.jpg?t=st=1736939549~exp=1736943149~hmac=dbfdd6c553a359cdd472cdbcf8df73d6250919767f62d1cbad23621307dd3b81&w=740",
             description: "",
-            component: <TicTacToe/>
+            component: <TicTacToeGame/>
         },
         {
             title: "Roll Dice",
