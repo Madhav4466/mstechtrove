@@ -15,6 +15,7 @@ import ColorContrastCalculator from './views/workplace/apps/calculators/color-co
 import TicTacToeGame from './views/workplace/games/tic-tac-toe/modified-version/game';
 import PossibleAccessibleColors from './views/workplace/apps/generators/possible-compliant-colors';
 import ColorEnhancer from './views/workplace/apps/generators/color-enhancer';
+import AreaCalculator from './views/workplace/apps/calculators/area-calculator';
 
 function App() {
   const workplace = {
@@ -31,6 +32,7 @@ function App() {
             imageURL: "https://img.freepik.com/free-vector/architecture-tools-design_24877-49734.jpg?t=st=1736938312~exp=1736941912~hmac=8666d2229f47a7800c5de00331e0661f4da549f3757074e662f2c61ce79dd1f1&w=740",
             description: "",
             type: "calculators",
+            component: <AreaCalculator/>
         },
         {
             title: "BMI Calculator",
