@@ -18,7 +18,7 @@ export default function Converter({unit, subUnit, input, conversionFactor}) {
             return;
         }
         const result = ConverterUtils.convert(floatVal, conversionFactor, factor, subFactor);
-        setResult(result);
+        setResult(parseFloat(result).toFixed(2));
     }
     return(
         <Row className='justify-content-center flex-column align-items-center gap-3'>
