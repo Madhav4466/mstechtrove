@@ -1,25 +1,23 @@
-import React from 'react';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import InputField from '../../../components/formfields/input';
-import AppResult from '../../../components/result-container';
-import ConverterUtils from '../../../../scripts/workplace/apps/converter';
+import React from "react";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import ConverterUtils from "../../../../scripts/workplace/apps/converter";
+import InputField from "../../formfields/input";
+import AppResult from "../../result-container";
 
-export default function LengthConverter() {
-    const[factor, setFactor] = React.useState("mm");
-    const[subFactor, setSubFactor] = React.useState("cm");
-    const[lengthFrom, setLengthFrom] = React.useState(0);
-    const[result, setResult] = React.useState(0);
-    const conversionFactor = "length";
+export default function Converter({unit, subUnit, input, conversionFactor}) {
+    const[factor, setFactor] = React.useState(unit);
+    const[subFactor, setSubFactor] = React.useState(subUnit);
+    const[value, setValue] = React.useState(input);
+    const[result, setResult] = React.useState(ConverterUtils.convert(parseFloat(input), conversionFactor, factor, subFactor));
 
-    const calculateLength = (e) => {
+    const handleConvert = (e) => {
         e.preventDefault();
-        const length = parseFloat(lengthFrom);
-        const conversion = ConverterUtils.converter[conversionFactor][factor][subFactor];
-        if(isNaN(length) || isNaN(conversion)) {
+        const floatVal = parseFloat(value);
+        if(isNaN(floatVal)) {
             setResult(0);
             return;
         }
-        const result = ConverterUtils.convert(length, conversionFactor, factor, subFactor);
+        const result = ConverterUtils.convert(floatVal, conversionFactor, factor, subFactor);
         setResult(result);
     }
     return(
@@ -36,7 +34,7 @@ export default function LengthConverter() {
                                     })}
                                 </Form.Select>
                             </Col>
-                            <InputField type={"number"} label={factor.toUpperCase()} id={factor} value={lengthFrom} onChange={(e) => setLengthFrom(e.target.value)}/>
+                            <InputField type={"number"} label={factor.toUpperCase()} id={factor} value={value} onChange={(e) => setValue(e.target.value)}/>
                             <Col lg={2} className="p-4 d-flex flex-column text-start rounded">
                                 <Form.Label htmlFor="lengthTo">Convert To</Form.Label>
                                 <Form.Select id="lengthTo" value={subFactor} onChange={(e) => setSubFactor(e.target.value)}>
@@ -48,13 +46,13 @@ export default function LengthConverter() {
                             
                             <Col lg={2} className="p-4 d-flex flex-column justify-content-center rounded">
                                 <Form.Label></Form.Label>
-                                <Button type="submit" variant="light" className='mt-4' onClick={calculateLength}>Calculate</Button>
+                                <Button type="submit" variant="light" className='mt-4' onClick={handleConvert}>Convert</Button>
                             </Col>
                         </Form.Group>
                     </Form>
                 </Container>
             </Col>
-            <AppResult message={`${lengthFrom} ${factor.toUpperCase()} is ${result} ${subFactor.toUpperCase()}`}/>
+            <AppResult message={`${value} ${factor.toUpperCase()} is ${result} ${subFactor.toUpperCase()}`}/>
         </Row>
     );
 }

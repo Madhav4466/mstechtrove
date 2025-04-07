@@ -16,10 +16,7 @@ import TicTacToeGame from './views/workplace/games/tic-tac-toe/modified-version/
 import PossibleAccessibleColors from './views/workplace/apps/generators/possible-compliant-colors';
 import ColorEnhancer from './views/workplace/apps/generators/color-enhancer';
 import AreaCalculator from './views/workplace/apps/calculators/area-calculator';
-import LengthConverter from './views/workplace/apps/converters/length-converter';
-import TempratureConverter from './views/workplace/apps/converters/temprature-converter';
-import AreaConverter from './views/workplace/apps/converters/area-converter';
-import CurrencyConverter from './views/workplace/apps/converters/currency-converter';
+import Converter from './views/components/workplace/converter/converters';
 
 function App() {
   const workplace = {
@@ -81,34 +78,35 @@ function App() {
             imageURL: "https://img.freepik.com/free-vector/air-quality-monitor-abstract-concept-illustration_335657-1884.jpg?t=st=1736939078~exp=1736942678~hmac=a8267807ce29d8eb2ec22da136f4617b0c3fd61e7233f8cc0be3ca9bb9e84e0d&w=740",
             description: "",
             type: "converters",
-            component: <TempratureConverter/>
+            component: <Converter unit={"C"} subUnit={"F"} input={0} conversionFactor={"temprature"}/>
         },
         {
             title: "Area Converter",
             imageURL: "https://img.freepik.com/free-vector/colorful-geometric-shapes-pattern_1308-174464.jpg?t=st=1736939164~exp=1736942764~hmac=b4449f721bb45e603de57356126d213f5d4ce3ad9ab6618c8e212750ca5d0042&w=740",
             description: "",
             type: "converters",
-            component: <AreaConverter/>
+            component: <Converter unit={"SquareMeter"} subUnit={"SquareFoot"} input={0} conversionFactor={"area"}/>
         },
         {
             title: "Length Converter",
             imageURL: "https://img.freepik.com/free-vector/measuring-tape-with-inch-metric-scales-set_1284-52118.jpg?t=st=1736939206~exp=1736942806~hmac=7891655035cc1a0bc3c626a8e2880bb3b294a379d094637fd6accbfb0cb4a9b7&w=740",
             description: "",
             type: "converters",
-            component: <LengthConverter/>
+            component: <Converter unit={"mm"} subUnit={"cm"} input={0} conversionFactor={"length"}/>
         },
         {
             title: "Currency Converter",
             imageURL: "https://img.freepik.com/free-vector/indian-rupee-composition-with-flat-design_23-2147992019.jpg?t=st=1736939299~exp=1736942899~hmac=7bb9838eda72f0f76dd9ec5b306bae5588a6794ce05ffe91c25821a43ea98df2&w=740",
             description: "",
             type: "converters",
-            component: <CurrencyConverter/>
+            component: <Converter unit={"dollar"} subUnit={"rupee"} input={0} conversionFactor={"currency"}/>
         },            
         {
             title:"Data Converter",
             imageURL: "https://img.freepik.com/free-vector/data-report-illustration-concept_114360-883.jpg?t=st=1736939423~exp=1736943023~hmac=a0dae5379d79c7cbc2ec33722e3b142e26639bf3e2764da2802bd1b7ad459dcb&w=740",
             description: "",
-            type: "converters"
+            type: "converters",
+            component: <Converter unit={"bits"} subUnit={"byte"} input={0} conversionFactor={"data"}/>
         },
         {
             title: "Time Converter",
