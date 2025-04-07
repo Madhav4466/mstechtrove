@@ -112,7 +112,8 @@ function App() {
             title: "Time Converter",
             imageURL: "https://img.freepik.com/free-vector/flat-design-time-management-concept_23-2148813012.jpg?t=st=1736939462~exp=1736943062~hmac=c3d5716bfea9786a2af03956fcc40a9cfdce8a3134fa5c2a6c924b6633e47d2b&w=740",
             description: "",
-            type: "converters"
+            type: "converters",
+            component: <Converter unit={"milliseconds"} subUnit={"seconds"} input={0} conversionFactor={"time"}/>
         },
         {
             title: "Color Code Converter",
