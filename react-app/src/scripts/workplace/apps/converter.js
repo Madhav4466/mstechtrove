@@ -151,8 +151,125 @@ export default class ConverterUtils {
                 pound: 0.0098,
                 yen: 1.67
             }
+        },
+        data: {
+            bits: {
+                byte: 0.125,
+                kilobyte: 0.0009765625,
+                megabyte: 9.5367431640625e-7,
+                gigabyte: 9.313225746154785e-10,
+                terabyte: 9.094947017729282e-13,
+            },
+            byte: {
+                bits: 8,
+                kilobyte: 0.0009765625,
+                megabyte: 9.5367431640625e-7,
+                gigabyte: 9.313225746154785e-10,
+                terabyte: 9.094947017729282e-13,
+            },
+            kilobyte: {
+                bits: 8192,
+                byte: 1024,
+                megabyte: 0.0009765625,
+                gigabyte: 9.5367431640625e-7,
+                terabyte: 9.313225746154785e-10,
+            },
+            megabyte: {
+                bits: 8388608,
+                byte: 1048576,
+                kilobyte: 1024,
+                gigabyte: 0.0009765625,
+                terabyte: 9.5367431640625e-7,
+            },
+            gigabyte: {
+                bits: 8589934592,
+                byte: 1073741824,
+                kilobyte: 1048576,
+                megabyte: 1024,
+                terabyte: 0.0009765625,
+            },
+            terabyte: {
+                bits: 8796093022208,
+                byte: 1099511627776,
+                kilobyte: 1073741824,
+                megabyte: 1048576,
+                gigabyte: 1024,
+            }
+        },
+        time: {
+            milliseconds: {
+                seconds: (ms) => ms / 1000,
+                minutes: (ms) => ms / (1000 * 60),
+                hours: (ms) => ms / (1000 * 60 * 60),
+                days: (ms) => ms / (1000 * 60 * 60 * 24),
+                weeks: (ms) => ms / (1000 * 60 * 60 * 24 * 7),
+                months: (ms) => ms / (1000 * 60 * 60 * 24 * 30.44),
+                years: (ms) => ms / (1000 * 60 * 60 * 24 * 365.25),
+            },
+            seconds: {
+                milliseconds: (s) => s * 1000,
+                minutes: (s) => s / 60,
+                hours: (s) => s / (60 * 60),
+                days: (s) => s / (60 * 60 * 24),
+                weeks: (s) => s / (60 * 60 * 24 * 7),
+                months: (s) => s / (60 * 60 * 24 * 30.44),
+                years: (s) => s / (60 * 60 * 24 * 365.25),
+            },
+            minutes: {
+                milliseconds: (m) => m * 1000 * 60,
+                seconds: (m) => m * 60,
+                hours: (m) => m / 60,
+                days: (m) => m / (60 * 24),
+                weeks: (m) => m / (60 * 24 * 7),
+                months: (m) => m / (60 * 24 * 30.44),
+                years: (m) => m / (60 * 24 * 365.25),
+            },
+            hours: {
+                milliseconds: (h) => h * 1000 * 60 * 60,
+                seconds: (h) => h * 60 * 60,
+                minutes: (h) => h * 60,
+                days: (h) => h / 24,
+                weeks: (h) => h / (24 * 7),
+                months: (h) => h / (24 * 30.44),
+                years: (h) => h / (24 * 365.25),
+            },
+            days: {
+                milliseconds: (d) => d * 1000 * 60 * 60 * 24,
+                seconds: (d) => d * 60 * 60 * 24,
+                minutes: (d) => d * 60 * 24,
+                hours: (d) => d * 24,
+                weeks: (d) => d / 7,
+                months: (d) => d / 30.44,
+                years: (d) => d / 365.25,
+            },
+            weeks: {
+                milliseconds: (w) => w * 1000 * 60 * 60 * 24 * 7,
+                seconds: (w) => w * 60 * 60 * 24 * 7,
+                minutes: (w) => w * 60 * 24 * 7,
+                hours: (w) => w * 24 * 7,
+                days: (w) => w * 7,
+                months: (w) => w * 7 / 30.44,
+                years: (w) => w * 7 / 365.25,
+            },
+            months: {
+                milliseconds: (mo) => mo * 1000 * 60 * 60 * 24 * 30.44,
+                seconds: (mo) => mo * 60 * 60 * 24 * 30.44,
+                minutes: (mo) => mo * 60 * 24 * 30.44,
+                hours: (mo) => mo * 24 * 30.44,
+                days: (mo) => mo * 30.44,
+                weeks: (mo) => mo * 30.44 / 7,
+                years: (mo) => mo / 12,
+            },
+            years: {
+                milliseconds: (y) => y * 1000 * 60 * 60 * 24 * 365.25,
+                seconds: (y) => y * 60 * 60 * 24 * 365.25,
+                minutes: (y) => y * 60 * 24 * 365.25,
+                hours: (y) => y * 24 * 365.25,
+                days: (y) => y * 365.25,
+                weeks: (y) => y * 365.25 / 7,
+                months: (y) => y * 12,
+            },
         }
-
     }
 
     // static convert(value, from, to) {
