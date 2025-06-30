@@ -12,6 +12,15 @@ import ColorConverter from './views/workplace/apps/converters/color-codes';
 import RandomColorGenerator from './views/workplace/apps/generators/random-color';
 import AccessibleColorGenerator from './views/workplace/apps/generators/accessible-color';
 import ColorContrastCalculator from './views/workplace/apps/calculators/color-contrast';
+import TicTacToeGame from './views/workplace/games/tic-tac-toe/modified-version/game';
+import PossibleAccessibleColors from './views/workplace/apps/generators/possible-compliant-colors';
+import ColorEnhancer from './views/workplace/apps/generators/color-enhancer';
+import AreaCalculator from './views/workplace/apps/calculators/area-calculator';
+import Converter from './views/components/workplace/converter/converters';
+import RollADice from './views/workplace/games/roll-a-dice/roll-a-dice';
+import TossACoin from './views/workplace/games/toss-a-coin/toss-a-coin';
+import GuessANumber from './views/workplace/games/guess-a-number/guess-a-number';
+import PigGame from './views/workplace/games/pig-game/pig-game';
 
 function App() {
   const workplace = {
@@ -28,6 +37,7 @@ function App() {
             imageURL: "https://img.freepik.com/free-vector/architecture-tools-design_24877-49734.jpg?t=st=1736938312~exp=1736941912~hmac=8666d2229f47a7800c5de00331e0661f4da549f3757074e662f2c61ce79dd1f1&w=740",
             description: "",
             type: "calculators",
+            component: <AreaCalculator/>
         },
         {
             title: "BMI Calculator",
@@ -71,37 +81,43 @@ function App() {
             title: "Temprature Converter",
             imageURL: "https://img.freepik.com/free-vector/air-quality-monitor-abstract-concept-illustration_335657-1884.jpg?t=st=1736939078~exp=1736942678~hmac=a8267807ce29d8eb2ec22da136f4617b0c3fd61e7233f8cc0be3ca9bb9e84e0d&w=740",
             description: "",
-            type: "converters"
+            type: "converters",
+            component: <Converter unit={"C"} subUnit={"F"} input={0} conversionFactor={"temprature"}/>
         },
         {
             title: "Area Converter",
             imageURL: "https://img.freepik.com/free-vector/colorful-geometric-shapes-pattern_1308-174464.jpg?t=st=1736939164~exp=1736942764~hmac=b4449f721bb45e603de57356126d213f5d4ce3ad9ab6618c8e212750ca5d0042&w=740",
             description: "",
-            type: "converters"
+            type: "converters",
+            component: <Converter unit={"SquareMeter"} subUnit={"SquareFoot"} input={0} conversionFactor={"area"}/>
         },
         {
             title: "Length Converter",
             imageURL: "https://img.freepik.com/free-vector/measuring-tape-with-inch-metric-scales-set_1284-52118.jpg?t=st=1736939206~exp=1736942806~hmac=7891655035cc1a0bc3c626a8e2880bb3b294a379d094637fd6accbfb0cb4a9b7&w=740",
             description: "",
-            type: "converters"
+            type: "converters",
+            component: <Converter unit={"mm"} subUnit={"cm"} input={0} conversionFactor={"length"}/>
         },
         {
             title: "Currency Converter",
             imageURL: "https://img.freepik.com/free-vector/indian-rupee-composition-with-flat-design_23-2147992019.jpg?t=st=1736939299~exp=1736942899~hmac=7bb9838eda72f0f76dd9ec5b306bae5588a6794ce05ffe91c25821a43ea98df2&w=740",
             description: "",
-            type: "converters"
+            type: "converters",
+            component: <Converter unit={"dollar"} subUnit={"rupee"} input={0} conversionFactor={"currency"}/>
         },            
         {
             title:"Data Converter",
             imageURL: "https://img.freepik.com/free-vector/data-report-illustration-concept_114360-883.jpg?t=st=1736939423~exp=1736943023~hmac=a0dae5379d79c7cbc2ec33722e3b142e26639bf3e2764da2802bd1b7ad459dcb&w=740",
             description: "",
-            type: "converters"
+            type: "converters",
+            component: <Converter unit={"bits"} subUnit={"byte"} input={0} conversionFactor={"data"}/>
         },
         {
             title: "Time Converter",
             imageURL: "https://img.freepik.com/free-vector/flat-design-time-management-concept_23-2148813012.jpg?t=st=1736939462~exp=1736943062~hmac=c3d5716bfea9786a2af03956fcc40a9cfdce8a3134fa5c2a6c924b6633e47d2b&w=740",
             description: "",
-            type: "converters"
+            type: "converters",
+            component: <Converter unit={"milliseconds"} subUnit={"seconds"} input={0} conversionFactor={"time"}/>
         },
         {
             title: "Color Code Converter",
@@ -123,25 +139,40 @@ function App() {
             description: "",
             type: "generators",
             component: <AccessibleColorGenerator/>
+        },
+        {
+            title: "Possible Accessible Color Generator",
+            imageURL: "https://img.freepik.com/free-vector/printing-industry-illustration_23-2148890131.jpg?t=st=1736938970~exp=1736942570~hmac=5ba2e053b3b9021cb9cccc0eec0cd21ed5f5cfa56b1daaf4d54a1142ea1a48d6&w=740",
+            description: "",
+            type: "generators",
+            component: <PossibleAccessibleColors/>
+        },
+        {
+            title: "Accessible Color Enhancer",
+            imageURL: "https://img.freepik.com/free-vector/printing-industry-illustration_23-2148890131.jpg?t=st=1736938970~exp=1736942570~hmac=5ba2e053b3b9021cb9cccc0eec0cd21ed5f5cfa56b1daaf4d54a1142ea1a48d6&w=740",
+            description: "",
+            type: "generators",
+            component: <ColorEnhancer/>
         }
-
     ], 
     games: [
         {
             title: "Tic-Tac-Toe",
             imageURL: "https://img.freepik.com/free-vector/hands-holding-pencils-play-tic-tac-toe-people-drawing-crosses-noughts-simple-game-children-flat-vector-illustration-strategy-concept-banner-website-design-landing-web-page_74855-24786.jpg?t=st=1736939549~exp=1736943149~hmac=dbfdd6c553a359cdd472cdbcf8df73d6250919767f62d1cbad23621307dd3b81&w=740",
             description: "",
-            component: <TicTacToe/>
+            component: <TicTacToeGame/>
         },
         {
             title: "Roll Dice",
             imageURL: "https://img.freepik.com/free-vector/cartoon-style-dice_78370-2824.jpg?t=st=1736939610~exp=1736943210~hmac=f9c931bf35d9e8b24dbc49559aac64bca54d334b2742948245e2b7cd883b10bf&w=740",
             description: "",
+            component: <RollADice/>
         },
         {
             title: "Toss Coin",
             imageURL: "https://img.freepik.com/free-vector/business-man-with-coins-leaves_24877-54740.jpg?t=st=1736939741~exp=1736943341~hmac=750f4f12ff199e7602256c4444b58af0e91d98f648e1a05fffab36970bc1435e&w=740",
             description: "",
+            component: <TossACoin/>
         },
         {
             title: "Word Scramble",
@@ -154,6 +185,12 @@ function App() {
         {
             title: "Guess a Number",
             description: "",
+            component: <GuessANumber/>
+        },
+        {
+            title: "Pig Game",
+            description: "",
+            component: <PigGame/>
         }
     ]
 };

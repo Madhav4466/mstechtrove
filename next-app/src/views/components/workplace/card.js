@@ -1,7 +1,7 @@
+import Link from "next/link";
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { FaCode, FaEye } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 export default function Card({sectionName, workplaceSection}) {
     return(
@@ -11,7 +11,7 @@ export default function Card({sectionName, workplaceSection}) {
                     return(
                         <Col key={sectionId} lg={2} sm={4} xs={6} className="justify-content-center p-1" role="listitem">
                             <Container className="p-3 card-elevated d-flex flex-column gap-3" style={{minHeight: '280px'}}>
-                                <Row Card className="flex-grow-1">
+                                <Row className="flex-grow-1">
                                     <Col lg={12}>
                                         <img alt="" style={{height: "120px", width: "100%", objectFit: "contain"}} src={section.imageURL}/>
                                     </Col>
@@ -24,7 +24,7 @@ export default function Card({sectionName, workplaceSection}) {
                                 </Row>
                                 <Row className="d-flex align-items-end">
                                     <Col lg={6} sm={6} xs={6} className="p-0">
-                                        <Button as={Link} to={`/workplace/${sectionName}/${section.type ? section.type : section.title.toLowerCase()}`} variant="dark" data-type={section.type}>
+                                        <Button as={Link} href={`/workplace/${sectionName}/${section.type ? section.type : section.title.toLowerCase()}`} variant="dark" data-type={section.type}>
                                             <FaEye />
                                         </Button>
                                     </Col>

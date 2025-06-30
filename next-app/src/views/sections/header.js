@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function HeaderNav({primaryNavigation}) {
+export default function HeaderNav({children, ...props}) {
     return(
-        <header className="col-12">
-            {primaryNavigation}
+        <header>
+            {children}
         </header>
     );
 }
