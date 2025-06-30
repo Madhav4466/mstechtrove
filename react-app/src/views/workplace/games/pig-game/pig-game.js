@@ -12,6 +12,30 @@ export default function PigGame() {
     const[activePlayer, setActivePlayer] = React.useState(0);
     const[winnerPlayer, setWinnerPlayer] = React.useState(null);
 
+    const resetCurrentScore = (value) => {
+        setScore(cs => {
+            const newScore = [...cs];
+            newScore[activePlayer] = value;
+            return newScore;
+        })
+    }
+
+    const setCurrentScore = (value) => {
+        setScore(cs => {
+            const newScore = [...cs];
+            newScore[activePlayer] += value;
+            return newScore;
+        })
+    }
+
+    const updateHoldScore = () => {
+        setHoldScore(hs => {
+            const newHoldScore = [...hs];
+            newHoldScore[activePlayer] += score[activePlayer];
+            return newHoldScore;
+        });
+    }
+
     const handleRollDice = () => {
         setIsSpinning(true);
 
@@ -19,43 +43,29 @@ export default function PigGame() {
             const randomNumber = Math.floor(Math.random() * 6) + 1;
             setDiceNumber(randomNumber);
             if( randomNumber === 1) {
-                setScore(cs => {
-                    const newScore = [...cs];
-                    newScore[activePlayer] = 0;
-                    return newScore;
-                });
+                resetCurrentScore(0);
                 setActivePlayer(ap => 1 - ap);
             }
             else {
-                setScore(cs => {
-                    const newScore = [...cs];
-                    newScore[activePlayer] += randomNumber;
-                    return newScore;
-                })
+                setCurrentScore(randomNumber);
             };
             setIsSpinning(false);
         }, 400);
     }
-
-    const handleHoldScore = () => {
-        setHoldScore(hs => {
-            const newHoldScore = [...hs];
-            newHoldScore[activePlayer] += score[activePlayer];
-            return newHoldScore;
-        });
-        setScore(cs => {
-            const newScore = [...cs];
-            newScore[activePlayer] = 0;
-            return newScore;
-        });
-        setDiceNumber(1);
-        setActivePlayer(ap => 1 - ap);
-        if(holdScore[0] >= 100) {
+    
+    React.useEffect(() => {
+        if (holdScore[0] >= 100) {
             setWinnerPlayer(0);
-        }
-        else if(holdScore[1] >= 100) {
+        } else if (holdScore[1] >= 100) {
             setWinnerPlayer(1);
         }
+    }, [holdScore]);
+
+    const handleHoldScore = () => {
+        updateHoldScore();
+        resetCurrentScore(0);
+        setDiceNumber(1);
+        setActivePlayer(ap => 1 - ap);
     }
 
     const handleNewGame = () => {
