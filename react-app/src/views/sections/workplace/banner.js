@@ -22,7 +22,7 @@ export default function Banner() {
                 <Col lg={6}>
                     <Row>
                         <Col lg={12} className="intro-pic justify-content-center d-flex align-items-center">
-                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGIVlQYVqzfDw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718211832265?e=1739404800&v=beta&t=8hKfITx0de6hdXMEP8NiUvBtU2EvwzEZH79sswrIkTM" alt="Madhav Saraf"></img>
+                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGIVlQYVqzfDw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718211832265?e=1745452800&v=beta&t=1zGhd3_OP3TSOmHwQbN6whgt4SCkBlq--FbCmalT0wc" alt="Madhav Saraf"></img>
                         </Col>
                     </Row>
                 </Col>

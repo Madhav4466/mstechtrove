@@ -1,0 +1,46 @@
+.active-player {
+    background-color: rgb(106 129 184) !important;
+}
+
+.player-card {
+    height: 100%;
+    background-color: #bac3d9;
+}
+.game-controls {
+    background-color: transparent;;
+    height: 100%;
+}
+
+.dice {
+    height: 100px;
+    width: 100px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    border: solid 5px black;
+    transition: transform 1s ease;
+}
+.dice.spin {
+    /* animation: rotate 1s linear; */
+}
+@keyframes rotate  {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(720deg);}    
+}
+
+.dot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot div {
+    width: 15px;
+    height: 15px;
+    background-color: #333;
+    border-radius: 100%;
+    display: none;
+}
+.dot .active {
+    display: block;
+}

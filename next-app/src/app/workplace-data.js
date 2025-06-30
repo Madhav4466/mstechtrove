@@ -1,23 +1,12 @@
-"use client"
+const { default: AgeCalculator } = require("@/views/workplace/apps/calculators/age-calculator");
+const { default: ColorContrastCalculator } = require("@/views/workplace/apps/calculators/color-contrast");
+const { default: SimpleCalculator } = require("@/views/workplace/apps/calculators/simple-calculators");
+const { default: ColorConverter } = require("@/views/workplace/apps/converters/color-codes");
+const { default: AccessibleColorGenerator } = require("@/views/workplace/apps/generators/accessible-color");
+const { default: RandomColorGenerator } = require("@/views/workplace/apps/generators/random-color");
+const { default: TicTacToe } = require("@/views/workplace/games/tic-tac-toe/tic-tac-toe");
 
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
-import Workplace from './views/pages/workplace';
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
-import Apps from './views/pages/apps';
-import SimpleCalculator from './views/workplace/apps/calculators/simple-calculators';
-import TicTacToe from './views/workplace/games/tic-tac-toe/tic-tac-toe';
-import Games from './views/pages/games';
-import AgeCalculator from './views/workplace/apps/calculators/age-calculator';
-import ColorConverter from './views/workplace/apps/converters/color-codes';
-import RandomColorGenerator from './views/workplace/apps/generators/random-color';
-import AccessibleColorGenerator from './views/workplace/apps/generators/accessible-color';
-import ColorContrastCalculator from './views/workplace/apps/calculators/color-contrast';
-import Home from './views/pages';
-
-function App() {
-  const workplace = {
+export const workplace = {
     apps: [
         {
             title: "Simple Calculator",
@@ -160,30 +149,3 @@ function App() {
         }
     ]
 };
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/workplace",
-      element: <Workplace workplace={workplace}/>,
-    },
-    {
-      path: "/workplace/apps/:type",
-      element: <Apps workplace={workplace}/>
-    },
-    {
-        path: "/workplace/games/:type",
-        element: <Games workplace={workplace}/>
-    }
-  ]);
-  return (
-    <div className="App d-flex flex-column min-vh-100">
-        <RouterProvider router={router}></RouterProvider>
-        <Outlet/>
-    </div>
-  );
-}
-
-export default App;
