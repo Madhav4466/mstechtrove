@@ -17,6 +17,10 @@ import PossibleAccessibleColors from './views/workplace/apps/generators/possible
 import ColorEnhancer from './views/workplace/apps/generators/color-enhancer';
 import AreaCalculator from './views/workplace/apps/calculators/area-calculator';
 import Converter from './views/components/workplace/converter/converters';
+import RollADice from './views/workplace/games/roll-a-dice/roll-a-dice';
+import TossACoin from './views/workplace/games/toss-a-coin/toss-a-coin';
+import GuessANumber from './views/workplace/games/guess-a-number/guess-a-number';
+import PigGame from './views/workplace/games/pig-game/pig-game';
 
 function App() {
   const workplace = {
@@ -162,11 +166,13 @@ function App() {
             title: "Roll Dice",
             imageURL: "https://img.freepik.com/free-vector/cartoon-style-dice_78370-2824.jpg?t=st=1736939610~exp=1736943210~hmac=f9c931bf35d9e8b24dbc49559aac64bca54d334b2742948245e2b7cd883b10bf&w=740",
             description: "",
+            component: <RollADice/>
         },
         {
             title: "Toss Coin",
             imageURL: "https://img.freepik.com/free-vector/business-man-with-coins-leaves_24877-54740.jpg?t=st=1736939741~exp=1736943341~hmac=750f4f12ff199e7602256c4444b58af0e91d98f648e1a05fffab36970bc1435e&w=740",
             description: "",
+            component: <TossACoin/>
         },
         {
             title: "Word Scramble",
@@ -179,6 +185,12 @@ function App() {
         {
             title: "Guess a Number",
             description: "",
+            component: <GuessANumber/>
+        },
+        {
+            title: "Pig Game",
+            description: "",
+            component: <PigGame/>
         }
     ]
 };
