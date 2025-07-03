@@ -1,14 +1,19 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import WorkplaceMenu from "./workplace-menu";
+import AppContent from "./app-content";
+import WorkplaceTitle from "./workplace-title";
 
-export default function GameContainer({game}) {
+export default function GameContainer({workplace}) {
+    const[selectedIndex, setSelectedIndex] = React.useState(0);
+
+    const handleMenuSelect = (index) => setSelectedIndex(index);
+
     return(
-        <Container className="pt-5">
-            <Row>
-                <Col lg={12}>
-                    {game}
-                </Col>
-            </Row>
+        <Container className="pt-5 gap-2 d-flex flex-column">
+            <WorkplaceTitle title={workplace.games[selectedIndex]?.title || "Games"}/>
+            <WorkplaceMenu workplace={workplace} onSelect={handleMenuSelect}/>
+            <AppContent component={workplace.games[selectedIndex]?.component}/>
         </Container>
     );
 }
