@@ -6,7 +6,14 @@ export default function Players({playerName, activePlayer, score = 0, holdScore 
         <Col lg={4} id="converter-container" className={`player-card p-4 rounded d-flex flex-column justify-content-evenly ${activePlayer && !winnerPlayer ? "active-player" : ""} ${winnerPlayer ? "text-bg-success": ""}`}>
             <Row>
                 <Col lg={12}>
-                    <h2>{playerName}</h2>
+                    <h2>{ winnerPlayer ? 
+                        <>
+                            <p className="h2">Winner!</p>
+                            <p className="h3">{playerName}</p>
+                        </> : 
+                        <p className="h2">{playerName}</p>
+                    }
+                    </h2>
                 </Col>
             </Row>
             <Row>
