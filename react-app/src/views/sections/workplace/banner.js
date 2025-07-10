@@ -15,7 +15,7 @@ export default function Banner() {
                     </Row>
                     <Row className="justify-content-center mt-2">
                         <Col lg={3} sm={3} xs={3}>
-                            <Button variant="primary">Get Started</Button>
+                            <Button href="#apps" variant="primary">Get Started</Button>
                         </Col>
                     </Row>
                 </Col>
