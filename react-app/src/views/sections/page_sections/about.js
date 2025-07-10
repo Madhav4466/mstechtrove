@@ -28,7 +28,7 @@ export default function AboutMe() {
                     <SectionHeading title="About Me" level="2"/>
                     <Row className="p-2">
                         <Col lg={4} className="about-me-pic justify-content-center p-1">
-                            <img height="300px" width="300px" src="https://pbs.twimg.com/profile_images/1382374410191917057/cLNtRZjv_400x400.jpg" alt="Madhav Saraf"></img>
+                            <img src="https://pbs.twimg.com/profile_images/1382374410191917057/cLNtRZjv_400x400.jpg" alt="Madhav Saraf"></img>
                         </Col>
                         <Col lg={8} className="about-me-info text-start d-flex flex-column justify-content-center p-1">
                             <Row className="justify-content-between p-2">
