@@ -1,4 +1,3 @@
-import React from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import Section from "../page_sections/section";
 
@@ -21,7 +20,7 @@ export default function Banner() {
                 </Col>
                 <Col lg={6}>
                     <Row>
-                        <Col lg={12} className="intro-pic justify-content-center d-flex align-items-center">
+                        <Col lg={12} className="intro-pic justify-content-center d-flex align-items-center mt-sm-4">
                             <img src="https://pbs.twimg.com/profile_images/1382374410191917057/cLNtRZjv_400x400.jpg" alt="Madhav Saraf"></img>
                         </Col>
                     </Row>
