@@ -2,6 +2,8 @@
     display: flex;
     align-items: center;
     padding-top: 6rem !important;
+    min-height: 100vh;
+    justify-content: center;
 }
 .intro-pic > img {
     height: 100%;
