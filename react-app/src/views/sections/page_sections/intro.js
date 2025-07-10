@@ -25,10 +25,10 @@ export default function Intro() {
                         <h2 className="h4 text-body-secondary">Accessibility Lead & Front-End Developer</h2>
                     </Row>
                     <Row className="justify-content-center mt-2">
-                        <Col lg={3} sm={3} xs={6}>
+                        <Col lg={3} sm={3} xs={6} className="w-auto">
                             <Button variant="dark" className="w-100">Download CV</Button>
                         </Col>
-                        <Col lg={3} sm={3} xs={6}>
+                        <Col lg={3} sm={3} xs={6} className="w-auto">
                             <Button href="#about-me" variant="outline-dark" className=" w-100 outlined">About Me</Button>
                         </Col>
                     </Row>
