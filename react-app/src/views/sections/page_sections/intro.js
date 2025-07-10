@@ -29,7 +29,7 @@ export default function Intro() {
                             <Button variant="dark" className="w-100">Download CV</Button>
                         </Col>
                         <Col lg={3} sm={3} xs={6}>
-                            <Button variant="outline-dark" className=" w-100 outlined">About Me</Button>
+                            <Button href="#about-me" variant="outline-dark" className=" w-100 outlined">About Me</Button>
                         </Col>
                     </Row>
                 </Col>
