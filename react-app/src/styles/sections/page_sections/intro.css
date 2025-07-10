@@ -1,4 +1,4 @@
-#intro {
+#intro, #banner {
     display: flex;
     align-items: center;
     padding-top: 6rem !important;
