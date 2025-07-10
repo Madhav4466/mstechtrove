@@ -1,8 +1,12 @@
 import { Col, Dropdown, Row } from "react-bootstrap";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { setPageNum } from "../../../redux/page-num";
+import { useDispatch } from "react-redux";
 
 export default function WorkplaceMenu({workplace, onSelect}) {
+    const dispatch = useDispatch();
+
     return (
         <Row className="p-2">
             <Col lg={12} className="d-flex justify-content-between">
@@ -17,7 +21,7 @@ export default function WorkplaceMenu({workplace, onSelect}) {
                                         {items.map((item, itemId) => {
                                             const {title} = item;
                                             return (
-                                                <Dropdown.Item key={itemId} as={Link} to={`/workplace/${category}/${title.toLowerCase().replace(" ", "-")}`} onClick={() => onSelect(itemId)}>{title}</Dropdown.Item>
+                                                <Dropdown.Item key={itemId} as={Link} to={`/workplace/${category}/${title.toLowerCase().replace(" ", "-")}`} onClick={() => dispatch(setPageNum(itemId))}>{title}</Dropdown.Item>
                                             )
                                         })}
                                     </Dropdown.Menu>
