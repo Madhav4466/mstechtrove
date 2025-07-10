@@ -10,7 +10,7 @@ export default function Intro() {
             <Col lg={6}>
                     <Row>
                         <Col lg={12} className="intro-pic justify-content-center d-flex align-items-center">
-                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGIVlQYVqzfDw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718211832265?e=1745452800&v=beta&t=1zGhd3_OP3TSOmHwQbN6whgt4SCkBlq--FbCmalT0wc" alt="Madhav Saraf"></img>
+                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGIVlQYVqzfDw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718211832265?e=1757548800&v=beta&t=vmWuuf8n-_RhSy1MrSoVhfVERuPaAxAOW5Dv0gyR27Q" alt="Madhav Saraf"></img>
                         </Col>
                     </Row>
                 </Col>
