@@ -13,7 +13,7 @@ export default function Banner() {
                         </h1> 
                     </Row>
                     <Row className="justify-content-center mt-2">
-                        <Col lg={3} sm={3} xs={3}>
+                        <Col lg={3} sm={3} xs={3} className="w-auto">
                             <Button href="#apps" variant="primary">Get Started</Button>
                         </Col>
                     </Row>
