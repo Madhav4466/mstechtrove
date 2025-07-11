@@ -1,8 +1,9 @@
-import { Col, Dropdown, Row } from "react-bootstrap";
-import { FaBars } from "react-icons/fa";
+import { Button, Col, Dropdown, Row } from "react-bootstrap";
+import { FaAngleLeft, FaAngleRight, FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { setPageNum } from "../../../redux/page-num";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import WorkplaceNavigation from "./workplace-nav";
 
 export default function WorkplaceMenu({workplace, onSelect}) {
     const dispatch = useDispatch();
@@ -51,6 +52,22 @@ export default function WorkplaceMenu({workplace, onSelect}) {
                         })}
                     </Dropdown.Menu>
                 </Dropdown>
+                <WorkplaceNavigation 
+                    title="Previous App" 
+                    handleClick={() => { if(!prevItem) return; dispatch(setPageNum({ value: getIndexInCategory(prevItem), category: prevItem.category}))} }
+                    href={prevItem && `/workplace/${prevItem.category}/${slugify(prevItem.title)}`}
+                    item={prevItem}
+                    >
+                        <FaAngleLeft />
+                </WorkplaceNavigation>
+                <WorkplaceNavigation 
+                    title="Next App" 
+                    handleClick={() => { if(!nextItem) return; dispatch(setPageNum({ value: getIndexInCategory(nextItem), category: nextItem.category}))} }
+                    href={nextItem && `/workplace/${nextItem.category}/${slugify(nextItem.title)}`}
+                    item={nextItem}
+                    >
+                        <FaAngleRight />
+                </WorkplaceNavigation>
             </Col>
         </Row>
     )
