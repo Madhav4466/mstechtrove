@@ -5,6 +5,15 @@ import { GoChecklist } from "react-icons/go";
 import { IoIosContact } from "react-icons/io";
 
 export default function PortfolioNav() {
+    const navLinks = [
+        { href: "#intro", label: "Intro", icon: <CgNotes size={30} /> },
+        { href: "#about-me", label: "About", icon: <FaUserTie size={30} /> },
+        { href: "#education", label: "Education", icon: <FaGraduationCap size={30} /> },
+        { href: "#skills", label: "Skills", icon: <GoChecklist size={30} /> },
+        { href: "#experience", label: "Experience", icon: <FaChartLine size={30} />  },
+        { href: "#projects", label: "Projects", icon: <FaLaptopCode size={30} /> },
+        { href: "#contact", label: "Contact", icon: <IoIosContact size={30} /> }
+    ];
 
     const renderIconsInSmallScreen = () => {
         return(
