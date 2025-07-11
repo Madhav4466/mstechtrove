@@ -39,10 +39,10 @@ export default function WorkplaceMenu({workplace, onSelect}) {
                                 <Dropdown key={index} drop="end">
                                     <Dropdown.Toggle variant="light" id={`dropdown-${cat}`} className="w-100 text-start">{cat.toUpperCase()}</Dropdown.Toggle>
                                     <Dropdown.Menu>
-                                        {workplace.filter(item => item.category === cat).map((item, itemId) => {
+                                        { workplace.filter((item) => item.category === cat).map((item, itemId) => {
                                             const {title} = item; 
                                             return (
-                                                <Dropdown.Item key={itemId} as={Link} to={`/workplace/${cat}/${title.toLowerCase().replace(" ", "-")}`} onClick={() => dispatch(setPageNum({value: itemId, category: cat}))}>{title}</Dropdown.Item>
+                                                <Dropdown.Item key={itemId} as={Link} to={`/workplace/${cat}/${slugify(item.title)}`} onClick={() => dispatch(setPageNum({value: itemId, category: cat}))}>{title}</Dropdown.Item>
                                             )
                                         })}
                                     </Dropdown.Menu>
