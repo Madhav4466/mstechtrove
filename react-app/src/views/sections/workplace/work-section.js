@@ -4,25 +4,27 @@ import SectionHeading from "../../components/section-heading";
 import Card from "../../components/workplace/card";
 
 export default function WorkplaceSection({workplace}) {
+    const categories = [...new Set(workplace.map(item => item.category))];
+
     return(
         <>
-            {
-                Object.keys(workplace).map((workSection) =>{
-                    return(
-                        <Section key={workSection} id={workSection} section={
-                            <>
-                                <Col lg={12} className="gap-2">
-                                    <SectionHeading title={`${workSection.charAt(0).toUpperCase() + workSection.slice(1)}`} level="2"/>
-                                    <Row className={`${workSection} p-2 justify-content-center`} role="list" aria-label={workSection}>
-                                        <Card workplaceSection={workplace[workSection]} sectionName={workSection}/>
-                                    </Row>
-                                </Col>
-                            </>
-                        }>
-                        </Section>
-                    );
-                })
-            }
+            {categories.map((category, index) => {
+                return(
+                    <Section key={index} id={category} section={
+                        <>
+                            <Col lg={12} className="gap-2">
+                                <SectionHeading title={`${category.charAt(0).toUpperCase() + category.slice(1)}`} level="2"/>
+                                <Row className={`${category} p-2 justify-content-center`} role="list" aria-label={category}>
+                                    { workplace.filter((item) => item.category === category).map((cat, categoryId) => {
+                                        return <Card key={categoryId} category={cat} sectionName={category} categoryId={categoryId}/>
+                                    })}
+                                </Row>
+                            </Col>
+                        </>
+                    }>
+                    </Section>
+                );
+            })}
         </>
     );
 }
