@@ -9,6 +9,10 @@ export default function WorkplaceMenu({workplace, onSelect}) {
     const {value: pageNum, category} = useSelector((state) => state.workplacePageNum);
     const slugify = (text) => text.toString().toLowerCase().trim().replace(/\s+/g, "-");
     const categories = [...new Set(workplace.map(item => item.category))];
+    const currentCategoryItems = workplace.filter((item) => item.category === category);
+    const currentItem = currentCategoryItems[pageNum];
+    const currentItemIndex = workplace.findIndex((item) => item.title === currentItem.title && item.category === category);
+    
 
     return (
         <Row className="p-2 justify-content-between">
