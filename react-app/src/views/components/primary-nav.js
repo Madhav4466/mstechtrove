@@ -11,13 +11,7 @@ export default function PrimaryNavigation() {
                 <Navbar.Collapse id="navbarScroll" className="justify-content-end">
                     <Nav variant="underline" className="my-2 my-lg-0" style={{ maxHeight: '100px' }} role="list" navbarScroll>
                         <Nav.Link as={NavLink} to="/" role="listitem" end>Home</Nav.Link>
-                        {/* <Nav.Link as={Link} to="/#about-me">About</Nav.Link>
-                        <Nav.Link as={Link} to="/#education">Education</Nav.Link>
-                        <Nav.Link as={Link} to="/#skills">Skills</Nav.Link>
-                        <Nav.Link as={Link} to="/#experience">Experience</Nav.Link>
-                        <Nav.Link as={Link} to="/#projects">Projects</Nav.Link> */}
                         <Nav.Link as={NavLink} to="/workplace" role="listitem" end>Workplace</Nav.Link>
-                        {/* <Nav.Link as={Link} to="/#contact">Contact</Nav.Link> */}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
