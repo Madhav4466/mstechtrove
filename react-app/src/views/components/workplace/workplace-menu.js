@@ -8,6 +8,8 @@ export default function WorkplaceMenu({workplace, onSelect}) {
     const dispatch = useDispatch();
 
     return (
+        <Row className="p-2 justify-content-between">
+            <Col lg={12} className="d-flex gap-2">
                 <Button
                     variant="dark"
                     as={Link}
