@@ -12,7 +12,7 @@ export default function AppsContainer({workplace}) {
        <Container className="pt-5 gap-2 d-flex flex-column">
             <WorkplaceTitle title={workItem?.title || "Apps"}/>
             <WorkplaceMenu workplace={workplace}/>
-            <AppContent workplace={workplace} component={workplace.apps[pageNum]?.component}/>
+            <AppContent workplace={workplace} component={workItem?.component}/>
         </Container>
     );
 }
