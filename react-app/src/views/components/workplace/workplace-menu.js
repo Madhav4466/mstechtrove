@@ -16,6 +16,9 @@ export default function WorkplaceMenu({workplace, onSelect}) {
     const prevItem = currentItemIndex > 0 ? workplace[currentItemIndex - 1] : null;
     const nextItem = currentItemIndex < workplace.length - 1 ? workplace[currentItemIndex + 1] : null;
 
+    const getIndexInCategory = (item) => {
+        return workplace.filter((i) => i.category === item.category).findIndex((i) => i.title === item.title);
+    }
 
     return (
         <Row className="p-2 justify-content-between">
