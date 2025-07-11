@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 export default function WorkplaceMenu({workplace, onSelect}) {
     const dispatch = useDispatch();
     const {value: pageNum, category} = useSelector((state) => state.workplacePageNum);
+    const slugify = (text) => text.toString().toLowerCase().trim().replace(/\s+/g, "-");
 
     return (
         <Row className="p-2 justify-content-between">
