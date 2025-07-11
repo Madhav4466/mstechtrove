@@ -21,15 +21,15 @@ export default function WorkplaceMenu({workplace, onSelect}) {
                 <Dropdown>
                     <Dropdown.Toggle variant="dark" id="dropdown-basic" aria-label="More Wokplace Items"><FaBars /></Dropdown.Toggle>
                     <Dropdown.Menu>
-                        {Object.entries(workplace).map(([category, items], index) => {
+                        {categories.map((cat, index) => {
                             return (
                                 <Dropdown key={index} drop="end">
-                                    <Dropdown.Toggle variant="light" id={`dropdown-${category}`} className="w-100 text-start">{category.toUpperCase()}</Dropdown.Toggle>
+                                    <Dropdown.Toggle variant="light" id={`dropdown-${cat}`} className="w-100 text-start">{cat.toUpperCase()}</Dropdown.Toggle>
                                     <Dropdown.Menu>
-                                        {items.map((item, itemId) => {
-                                            const {title} = item;
+                                        {workplace.filter(item => item.category === cat).map((item, itemId) => {
+                                            const {title} = item; 
                                             return (
-                                                <Dropdown.Item key={itemId} as={Link} to={`/workplace/${category}/${title.toLowerCase().replace(" ", "-")}`} onClick={() => dispatch(setPageNum(itemId))}>{title}</Dropdown.Item>
+                                                <Dropdown.Item key={itemId} as={Link} to={`/workplace/${cat}/${title.toLowerCase().replace(" ", "-")}`} onClick={() => dispatch(setPageNum({value: itemId, category: cat}))}>{title}</Dropdown.Item>
                                             )
                                         })}
                                     </Dropdown.Menu>
