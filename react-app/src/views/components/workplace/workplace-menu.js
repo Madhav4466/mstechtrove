@@ -8,8 +8,14 @@ export default function WorkplaceMenu({workplace, onSelect}) {
     const dispatch = useDispatch();
 
     return (
-        <Row className="p-2">
-            <Col lg={12} className="d-flex justify-content-between">
+                <Button
+                    variant="dark"
+                    as={Link}
+                    to="/workplace"
+                    title="Back to workplace"
+                >
+                    Back
+                </Button>
                 <Dropdown>
                     <Dropdown.Toggle variant="dark" id="dropdown-basic" aria-label="More Wokplace Items"><FaBars /></Dropdown.Toggle>
                     <Dropdown.Menu>
