@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 
 export default function WorkplaceMenu({workplace, onSelect}) {
     const dispatch = useDispatch();
+    const {value: pageNum, category} = useSelector((state) => state.workplacePageNum);
 
     return (
         <Row className="p-2 justify-content-between">
