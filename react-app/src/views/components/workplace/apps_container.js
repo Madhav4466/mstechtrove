@@ -5,11 +5,12 @@ import WorkplaceTitle from "./workplace-title";
 import { useSelector } from "react-redux";
 
 export default function AppsContainer({workplace}) {
-    const pageNum = useSelector((state) => state.workplacePageNum.value);
+    const {value: pageNum, category} = useSelector((state) => state.workplacePageNum);
+    const workItem = workplace.filter(item => item.category === category)[pageNum];
 
     return(
        <Container className="pt-5 gap-2 d-flex flex-column">
-            <WorkplaceTitle title={workplace.apps[pageNum]?.title || "Apps"}/>
+            <WorkplaceTitle title={workItem?.title || "Apps"}/>
             <WorkplaceMenu workplace={workplace}/>
             <AppContent workplace={workplace} component={workplace.apps[pageNum]?.component}/>
         </Container>
