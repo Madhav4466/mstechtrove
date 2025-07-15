@@ -30,7 +30,7 @@ function App() {
             description: "",
             type: "calculators",
             category: "apps",
-            component: <SimpleCalculator/>
+            getComponent: () =>  <SimpleCalculator/>
         },
         {
             title: "Area Calculator",
@@ -38,7 +38,7 @@ function App() {
             description: "",
             type: "calculators",
             category: "apps",
-            component: <AreaCalculator/>
+            getComponent: () => <AreaCalculator/>
         },
         {
             title: "BMI Calculator",
@@ -53,7 +53,7 @@ function App() {
             description: "",
             type: "calculators",
             category: "apps",
-            component: <AgeCalculator/>
+            getComponent: () => <AgeCalculator/>
         },
         {
             title: "Difference Calculator",
@@ -82,7 +82,7 @@ function App() {
             description: "",
             type: "calculators",
             category: "apps",
-            component: <ColorContrastCalculator/>
+            getComponent: () => <ColorContrastCalculator/>
         },
         {
             title: "Temprature Converter",
@@ -90,7 +90,7 @@ function App() {
             description: "",
             type: "converters",
             category: "apps",
-            component: <Converter unit={"C"} subUnit={"F"} input={0} conversionFactor={"temprature"}/>
+            getComponent: () => <Converter unit={"C"} subUnit={"F"} input={0} conversionFactor={"temprature"}/>
         },
         {
             title: "Area Converter",
@@ -98,7 +98,7 @@ function App() {
             description: "",
             type: "converters",
             category: "apps",
-            component: <Converter unit={"SquareMeter"} subUnit={"SquareFoot"} input={0} conversionFactor={"area"}/>
+            getComponent: () => <Converter unit={"SquareMeter"} subUnit={"SquareFoot"} input={0} conversionFactor={"area"}/>
         },
         {
             title: "Length Converter",
@@ -106,7 +106,7 @@ function App() {
             description: "",
             type: "converters",
             category: "apps",
-            component: <Converter unit={"mm"} subUnit={"cm"} input={0} conversionFactor={"length"}/>
+            getComponent: () => <Converter unit={"mm"} subUnit={"cm"} input={0} conversionFactor={"length"}/>
         },
         {
             title: "Currency Converter",
@@ -114,7 +114,7 @@ function App() {
             description: "",
             type: "converters",
             category: "apps",
-            component: <Converter unit={"dollar"} subUnit={"rupee"} input={0} conversionFactor={"currency"}/>
+            getComponent: () => <Converter unit={"dollar"} subUnit={"rupee"} input={0} conversionFactor={"currency"}/>
         },            
         {
             title:"Data Converter",
@@ -122,7 +122,7 @@ function App() {
             description: "",
             type: "converters",
             category: "apps",
-            component: <Converter unit={"bits"} subUnit={"byte"} input={0} conversionFactor={"data"}/>
+            getComponent: () => <Converter unit={"bits"} subUnit={"byte"} input={0} conversionFactor={"data"}/>
         },
         {
             title: "Time Converter",
@@ -130,7 +130,7 @@ function App() {
             description: "",
             type: "converters",
             category: "apps",
-            component: <Converter unit={"milliseconds"} subUnit={"seconds"} input={0} conversionFactor={"time"}/>
+            getComponent: () => <Converter unit={"milliseconds"} subUnit={"seconds"} input={0} conversionFactor={"time"}/>
         },
         {
             title: "Color Code Converter",
@@ -138,7 +138,7 @@ function App() {
             description: "",
             type: "converters",
             category: "apps",
-            component: <ColorConverter/>
+            getComponent: () => <ColorConverter/>
         },
         {
             title: "Random Color Generator",
@@ -146,7 +146,7 @@ function App() {
             description: "",
             type: "generators",
             category: "apps",
-            component: <RandomColorGenerator/>
+            getComponent: () => <RandomColorGenerator/>
         },
         {
             title: "Random Accessible Color Generator",
@@ -154,7 +154,7 @@ function App() {
             description: "",
             type: "generators",
             category: "apps",
-            component: <AccessibleColorGenerator/>
+            getComponent: () => <AccessibleColorGenerator/>
         },
         {
             title: "Possible Accessible Color Generator",
@@ -162,7 +162,7 @@ function App() {
             description: "",
             type: "generators",
             category: "apps",
-            component: <PossibleAccessibleColors/>
+            getComponent: () => <PossibleAccessibleColors/>
         },
         {
             title: "Accessible Color Enhancer",
@@ -170,28 +170,28 @@ function App() {
             description: "",
             type: "generators",
             category: "apps",
-            component: <ColorEnhancer/>
+            getComponent: () => <ColorEnhancer/>
         },
         {
             title: "Tic-Tac-Toe",
             imageURL: "https://img.freepik.com/free-vector/hands-holding-pencils-play-tic-tac-toe-people-drawing-crosses-noughts-simple-game-children-flat-vector-illustration-strategy-concept-banner-website-design-landing-web-page_74855-24786.jpg?t=st=1736939549~exp=1736943149~hmac=dbfdd6c553a359cdd472cdbcf8df73d6250919767f62d1cbad23621307dd3b81&w=740",
             description: "",
             category: "games",
-            component: <TicTacToeGame/>
+            getComponent: () => <TicTacToeGame/>
         },
         {
             title: "Roll Dice",
             imageURL: "https://img.freepik.com/free-vector/cartoon-style-dice_78370-2824.jpg?t=st=1736939610~exp=1736943210~hmac=f9c931bf35d9e8b24dbc49559aac64bca54d334b2742948245e2b7cd883b10bf&w=740",
             description: "",
             category: "games",
-            component: <RollADice/>
+            getComponent: () => <RollADice/>
         },
         {
             title: "Toss Coin",
             imageURL: "https://img.freepik.com/free-vector/business-man-with-coins-leaves_24877-54740.jpg?t=st=1736939741~exp=1736943341~hmac=750f4f12ff199e7602256c4444b58af0e91d98f648e1a05fffab36970bc1435e&w=740",
             description: "",
             category: "games",
-            component: <TossACoin/>
+            getComponent: () => <TossACoin/>
         },
         {
             title: "Word Scramble",
@@ -207,13 +207,13 @@ function App() {
             title: "Guess a Number",
             description: "",
             category: "games",
-            component: <GuessANumber/>
+            getComponent: () => <GuessANumber/>
         },
         {
             title: "Pig Game",
             description: "",
             category: "games",
-            component: <PigGame/>
+            getComponent: () => <PigGame/>
         }
     ];
 
