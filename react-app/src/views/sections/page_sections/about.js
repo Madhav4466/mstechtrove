@@ -3,6 +3,7 @@ import Section from "./section";
 import { Button, Col, Row } from "react-bootstrap";
 import SectionHeading from "../../components/section-heading";
 import AboutDetails from "../../components/about_details";
+import { Link } from 'react-router-dom';
 
 export default function AboutMe() {
     const about = {
@@ -41,7 +42,7 @@ export default function AboutMe() {
                             </Row>
                             <Row className="p-2">
                                 <Col lg={3} sm={3} xs={6}>
-                                    <Button variant="dark" className="w-100">Resume</Button>
+                                    <Button as={Link} href="https://1drv.ms/b/c/712766747430d332/EZUKTNXqSQlFlns25ODMVpEBv8sXJg9vTykyyL60CtRChQ?e=659LVk" target="_blank" download="Madhav_Saraf_Resume.pdf"  variant="dark" className="w-100">Resume</Button>
                                 </Col>
                             </Row>
                         </Col>

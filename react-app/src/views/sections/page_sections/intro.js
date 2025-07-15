@@ -2,6 +2,7 @@ import React from "react";
 import Section from "./section";
 import { Button, Col, Row } from "react-bootstrap";
 import '../../../styles/sections/page_sections/intro.css';
+import { Link } from "react-router-dom";
 
 export default function Intro() {
     return(
@@ -26,7 +27,7 @@ export default function Intro() {
                     </Row>
                     <Row className="justify-content-center mt-2">
                         <Col lg={3} sm={3} xs={6} className="w-auto">
-                            <Button variant="dark" className="w-100">Download CV</Button>
+                            <Button variant="dark" className="w-100" as={Link} href="https://1drv.ms/b/c/712766747430d332/EZUKTNXqSQlFlns25ODMVpEBv8sXJg9vTykyyL60CtRChQ?e=659LVk" download={"Madhav_Saraf_Resume.pdf"} target="_blank">Download CV</Button>
                         </Col>
                         <Col lg={3} sm={3} xs={6} className="w-auto">
                             <Button href="#about-me" variant="outline-dark" className=" w-100 outlined">About Me</Button>
