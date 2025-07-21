@@ -1,4 +1,3 @@
-import React from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import Section from "../page_sections/section";
 
@@ -14,15 +13,15 @@ export default function Banner() {
                         </h1> 
                     </Row>
                     <Row className="justify-content-center mt-2">
-                        <Col lg={3} sm={3} xs={3}>
-                            <Button variant="primary">Get Started</Button>
+                        <Col lg={3} sm={3} xs={3} className="w-auto">
+                            <Button href="#apps" variant="primary">Get Started</Button>
                         </Col>
                     </Row>
                 </Col>
                 <Col lg={6}>
                     <Row>
-                        <Col lg={12} className="intro-pic justify-content-center d-flex align-items-center">
-                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGIVlQYVqzfDw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718211832265?e=1745452800&v=beta&t=1zGhd3_OP3TSOmHwQbN6whgt4SCkBlq--FbCmalT0wc" alt="Madhav Saraf"></img>
+                        <Col lg={12} className="intro-pic justify-content-center d-flex align-items-center mt-sm-4">
+                            <img src="https://pbs.twimg.com/profile_images/1382374410191917057/cLNtRZjv_400x400.jpg" alt="Madhav Saraf"></img>
                         </Col>
                     </Row>
                 </Col>

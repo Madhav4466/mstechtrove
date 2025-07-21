@@ -2,6 +2,7 @@ import React from "react";
 import Section from "./section";
 import { Button, Col, Row } from "react-bootstrap";
 import '../../../styles/sections/page_sections/intro.css';
+import { Link } from "react-router-dom";
 
 export default function Intro() {
     return(
@@ -10,7 +11,7 @@ export default function Intro() {
             <Col lg={6}>
                     <Row>
                         <Col lg={12} className="intro-pic justify-content-center d-flex align-items-center">
-                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGIVlQYVqzfDw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718211832265?e=1745452800&v=beta&t=1zGhd3_OP3TSOmHwQbN6whgt4SCkBlq--FbCmalT0wc" alt="Madhav Saraf"></img>
+                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGIVlQYVqzfDw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718211832265?e=1757548800&v=beta&t=vmWuuf8n-_RhSy1MrSoVhfVERuPaAxAOW5Dv0gyR27Q" alt="Madhav Saraf"></img>
                         </Col>
                     </Row>
                 </Col>
@@ -25,11 +26,11 @@ export default function Intro() {
                         <h2 className="h4 text-body-secondary">Accessibility Lead & Front-End Developer</h2>
                     </Row>
                     <Row className="justify-content-center mt-2">
-                        <Col lg={3} sm={3} xs={6}>
-                            <Button variant="dark" className="w-100">Download CV</Button>
+                        <Col lg={3} sm={3} xs={6} className="w-auto">
+                            <Button variant="dark" className="w-100" as={Link} href="https://1drv.ms/b/c/712766747430d332/EZUKTNXqSQlFlns25ODMVpEBv8sXJg9vTykyyL60CtRChQ?e=659LVk" download={"Madhav_Saraf_Resume.pdf"} target="_blank">Download CV</Button>
                         </Col>
-                        <Col lg={3} sm={3} xs={6}>
-                            <Button variant="outline-dark" className=" w-100 outlined">About Me</Button>
+                        <Col lg={3} sm={3} xs={6} className="w-auto">
+                            <Button href="#about-me" variant="outline-dark" className=" w-100 outlined">About Me</Button>
                         </Col>
                     </Row>
                 </Col>
