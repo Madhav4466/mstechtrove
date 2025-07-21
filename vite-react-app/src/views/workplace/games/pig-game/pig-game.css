@@ -1,3 +1,16 @@
+.active-player {
+    background-color: rgb(106 129 184) !important;
+}
+
+.player-card {
+    height: 100%;
+    background-color: #bac3d9;
+}
+.game-controls {
+    background-color: transparent;;
+    height: 100%;
+}
+
 .dice {
     height: 100px;
     width: 100px;
@@ -7,8 +20,8 @@
     border: solid 5px black;
     transition: transform 1s ease;
 }
-.dice.roll {
-    animation: rotate 1s linear;
+.dice.spin {
+    /* animation: rotate 1s linear; */
 }
 @keyframes rotate  {
     0% { transform: rotate(0deg);}

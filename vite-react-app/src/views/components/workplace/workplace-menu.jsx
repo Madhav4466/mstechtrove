@@ -1,0 +1,75 @@
+import { Button, Col, Dropdown, Row } from "react-bootstrap";
+import { FaAngleLeft, FaAngleRight, FaBars } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { setPageNum } from "../../../redux/page-num";
+import { useDispatch, useSelector } from "react-redux";
+import WorkplaceNavigation from "./workplace-nav";
+
+export default function WorkplaceMenu({workplace, onSelect}) {
+    const dispatch = useDispatch();
+    const {value: pageNum, category} = useSelector((state) => state.workplacePageNum);
+    const slugify = (text) => text.toString().toLowerCase().trim().replace(/\s+/g, "-");
+    const categories = [...new Set(workplace.map(item => item.category))];
+    const currentCategoryItems = workplace.filter((item) => item.category === category);
+    const currentItem = currentCategoryItems[pageNum];
+    const currentItemIndex = workplace.findIndex((item) => item.title === currentItem.title && item.category === category);
+    
+    const prevItem = currentItemIndex > 0 ? workplace[currentItemIndex - 1] : null;
+    const nextItem = currentItemIndex < workplace.length - 1 ? workplace[currentItemIndex + 1] : null;
+
+    const getIndexInCategory = (item) => {
+        return workplace.filter((i) => i.category === item.category).findIndex((i) => i.title === item.title);
+    }
+
+    return (
+        <Row className="p-2 justify-content-between">
+            <Col lg={12} className="d-flex gap-2">
+                <Button
+                    variant="dark"
+                    as={Link}
+                    to="/workplace"
+                    title="Back to workplace"
+                >
+                    Back
+                </Button>
+                <Dropdown>
+                    <Dropdown.Toggle variant="dark" id="dropdown-basic" aria-label="More Wokplace Items"><FaBars /></Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        {categories.map((cat, index) => {
+                            return (
+                                <Dropdown key={index} drop="end">
+                                    <Dropdown.Toggle variant="light" id={`dropdown-${cat}`} className="w-100 text-start">{cat.toUpperCase()}</Dropdown.Toggle>
+                                    <Dropdown.Menu>
+                                        { workplace.filter((item) => item.category === cat).map((item, itemId) => {
+                                            const {title} = item; 
+                                            return (
+                                                <Dropdown.Item key={itemId} as={Link} to={`/workplace/${cat}/${slugify(item.title)}`} onClick={() => dispatch(setPageNum({value: itemId, category: cat}))}>{title}</Dropdown.Item>
+                                            )
+                                        })}
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            );
+                        })}
+                    </Dropdown.Menu>
+                </Dropdown>
+                <WorkplaceNavigation 
+                    title="Previous App" 
+                    handleClick={() => { if(!prevItem) return; dispatch(setPageNum({ value: getIndexInCategory(prevItem), category: prevItem.category}))} }
+                    href={prevItem && `/workplace/${prevItem.category}/${slugify(prevItem.title)}`}
+                    item={prevItem}
+                    >
+                        <FaAngleLeft />
+                </WorkplaceNavigation>
+                <WorkplaceNavigation 
+                    title="Next App" 
+                    handleClick={() => { if(!nextItem) return; dispatch(setPageNum({ value: getIndexInCategory(nextItem), category: nextItem.category}))} }
+                    href={nextItem && `/workplace/${nextItem.category}/${slugify(nextItem.title)}`}
+                    item={nextItem}
+                    >
+                        <FaAngleRight />
+                </WorkplaceNavigation>
+            </Col>
+        </Row>
+    )
+
+}

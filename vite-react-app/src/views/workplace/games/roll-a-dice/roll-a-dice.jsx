@@ -1,5 +1,4 @@
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { generateRandomNumber } from "../../../../scripts/workplace/games/roll-a-dice";
 import { useState } from "react";
 import "./roll-a-dice.css";
 
@@ -19,7 +18,7 @@ export default function RollADice() {
         setIsSpinning(true);
 
         setTimeout(() => {
-            const randomNumber = generateRandomNumber(6);
+            const randomNumber = Math.floor(Math.random() * 6) + 1;
             setDiceNumber(randomNumber);
             setIsSpinning(false);
         }, 1000);

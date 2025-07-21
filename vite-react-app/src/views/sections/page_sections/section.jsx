@@ -3,7 +3,7 @@ import { Container, Row } from "react-bootstrap";
 
 export default function Section({ section, id, height }) {
     return(
-        <Container className="p-4" id={id}>
+        <Container className="p-4 page-section" id={id}>
             <Row className="align-items-center">
                 {section}
             </Row>

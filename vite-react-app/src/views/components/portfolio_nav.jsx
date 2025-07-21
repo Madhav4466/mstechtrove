@@ -3,61 +3,53 @@ import { CgNotes } from "react-icons/cg";
 import { FaChartLine, FaGraduationCap, FaLaptopCode, FaUserTie } from "react-icons/fa";
 import { GoChecklist } from "react-icons/go";
 import { IoIosContact } from "react-icons/io";
+import { useLocation } from "react-router-dom";
 
 export default function PortfolioNav() {
+    const { hash } = useLocation();
+    const navLinks = [
+        { href: "#intro", label: "Intro", icon: <CgNotes size={30} /> },
+        { href: "#about-me", label: "About", icon: <FaUserTie size={30} /> },
+        { href: "#education", label: "Education", icon: <FaGraduationCap size={30} /> },
+        { href: "#skills", label: "Skills", icon: <GoChecklist size={30} /> },
+        { href: "#experience", label: "Experience", icon: <FaChartLine size={30} />  },
+        { href: "#projects", label: "Projects", icon: <FaLaptopCode size={30} /> },
+        { href: "#contact", label: "Contact", icon: <IoIosContact size={30} /> }
+    ];
 
     const renderIconsInSmallScreen = () => {
         return(
             <>
-                <Nav.Item className="d-lg-none" role="listitem">
-                    <Nav.Link href="#intro"><CgNotes size={30}/></Nav.Link>
-                </Nav.Item>
-                <Nav.Item className="d-lg-none" role="listitem">
-                    <Nav.Link eventKey={2} href="#about-me"><FaUserTie size={30}/></Nav.Link>
-                </Nav.Item>
-                <Nav.Item className="d-lg-none" role="listitem">
-                    <Nav.Link eventKey="link-3" href="#education"><FaGraduationCap size={30}/></Nav.Link>
-                </Nav.Item>
-                <Nav.Item className="d-lg-none" role="listitem">
-                    <Nav.Link eventKey="link-1" href="#skills"><GoChecklist size={30}/></Nav.Link>
-                </Nav.Item >
-                <Nav.Item className="d-lg-none" role="listitem">
-                    <Nav.Link eventKey="link-1" href="#experience"><FaChartLine size={30}/></Nav.Link>
-                </Nav.Item>
-                <Nav.Item className="d-lg-none" role="listitem">
-                    <Nav.Link eventKey="link-1" href="#projects"><FaLaptopCode size={30}/></Nav.Link>
-                </Nav.Item>
-                <Nav.Item className="d-lg-none" role="listitem">
-                    <Nav.Link eventKey="link-1" href="#contact"><IoIosContact size={30}/></Nav.Link>
-                </Nav.Item>
+                { navLinks.map(({ href, icon }, idx) => (
+                    <Nav.Item className="d-lg-none" role="listitem" key={href}>
+                        <Nav.Link
+                            href={href}
+                            active={hash === href}
+                            eventKey={`icon-link-${idx}`}
+                        >
+                            {icon}
+                        </Nav.Link>
+                    </Nav.Item>
+                ))}
             </>
         );
-    }
+    }       
 
     const renderNavLinksOnDesktop = () => {
         return(
             <>
-                <Nav.Item className="d-none d-lg-block" role="listitem">
-                    <Nav.Link href="#intro">Intro</Nav.Link>
-                </Nav.Item>
-                <Nav.Item className="d-none d-lg-block" role="listitem">
-                    <Nav.Link eventKey={2} href="#about-me">About</Nav.Link>
-                </Nav.Item>
-                <Nav.Item className="d-none d-lg-block" role="listitem">
-                    <Nav.Link eventKey="link-3" href="#education">Education</Nav.Link>
-                </Nav.Item>
-                <Nav.Item className="d-none d-lg-block" role="listitem">
-                    <Nav.Link eventKey="link-4" href="#skills">Skills</Nav.Link>
-                </Nav.Item >
-                <Nav.Item className="d-none d-lg-block" role="listitem">
-                    <Nav.Link eventKey="link-5" href="#experience">Experience</Nav.Link>
-                </Nav.Item>
-                <Nav.Item className="d-none d-lg-block" role="listitem">
-                    <Nav.Link eventKey="link-6" href="#projects">Projects</Nav.Link>
-                </Nav.Item>
-                <Nav.Item className="d-none d-lg-block" role="listitem">
-                    <Nav.Link eventKey="link-7" href="#contact">Contact</Nav.Link>
-                </Nav.Item>
+                { navLinks.map(({ href, label }, idx) => (
+                    <Nav.Item className="d-none d-lg-block" role="listitem" key={href}>
+                    <Nav.Link
+                        href={href}
+                        active={hash === href}
+                        aria-current={hash === href}
+                        eventKey={`link-${idx}`}
+                    >
+                        {label}
+                    </Nav.Link>
+                    </Nav.Item>
+                ))}
             </>
         );
     }
