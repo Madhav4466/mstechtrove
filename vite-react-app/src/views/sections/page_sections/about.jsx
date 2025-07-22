@@ -9,7 +9,7 @@ export default function AboutMe() {
     const about = {
         experience: {
             designation: "Accessibility Lead",
-            workingSince: "2018"
+            workingSince: "Oct 22, 2018"
         },
         education: {
             masters: "MCA - Master's Degree",

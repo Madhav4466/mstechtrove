@@ -1,8 +1,11 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { yearsCalculator } from "../../scripts/workplace/apps/date-time-calc";
 
 export default function AboutDetails({about}) {
     const {education, experience} = about;
+    const error = yearsCalculator(experience.workingSince).error && yearsCalculator(experience.workingSince).error;
+    const totalYears = yearsCalculator(experience.workingSince);
 
     const experienceSummary = () => {
         return(
@@ -12,7 +15,7 @@ export default function AboutDetails({about}) {
                         <h3>Experience</h3>
                     </Row>
                     <Row>
-                        <span className="text-body-secondary h6">{new Date().getFullYear()-experience.workingSince}+ Years</span>
+                        <span className="text-body-secondary h6">{!error ? `${totalYears}+ Years` : <span className="text-danger">{error}</span>}</span>
                         <span className="text-body-secondary h6">{experience.designation}</span>
                     </Row>
                 </Container>
