@@ -195,8 +195,7 @@ export default function AgeCalculator() {
                                         placeholder="name@example.com" 
                                         value={selectedDate} 
                                         onChange={handleDateChange} 
-                                        required 
-                                        defaultValue={''} 
+                                        required
                                         max={new Date().toISOString().split('T')[0]} 
                                     />
                                     <Form.Control.Feedback type="invalid">{error ? error : "Please provide your Date of Birth"}</Form.Control.Feedback>
