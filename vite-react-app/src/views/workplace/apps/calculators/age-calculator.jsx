@@ -89,82 +89,85 @@ export default function AgeCalculator() {
         return(
             <>
                 { ageData &&
-                    <Col lg={4} id="result-container">
-                        <Container className={"card-elevated result d-flex flex-column gap-3"}>
-                            <Row className="age-summary">
-                                <Col lg={12} className="col-lg-12 d-flex flex-column gap-3 p-3">
-                                    <Row className="mt-3">
-                                        <Col>Your Age is:</Col>
-                                    </Row>
-                                    <Row className="justify-content-around">
-                                        <Col lg={2} sm={2} xs={2} className="summary-box">
-                                            <Col lg={12}>{ageData.years}</Col>
-                                            <Col lg={12}>Years</Col>
+                    <Col lg={12} id="result" className="text-bg-dark rounded">
+                        <Row className="justify-content-center p-4">
+                            <Col lg={6} className="p-4" id="result-container">
+                                <Container className={"card-elevated result d-flex flex-column gap-3"}>
+                                    <Row className="age-summary" >
+                                        <Col lg={12} className="d-flex flex-column gap-3 p-3">
+                                            <Row className="mt-3">
+                                                <Col>Your Age is:</Col>
+                                            </Row>
+                                            <Row className="justify-content-around gap-1">
+                                                <Col lg={2} sm={2} className="summary-box col">
+                                                    <p className="m-0">{ageData.years}</p>
+                                                    <p className="m-0">Years</p>
+                                                </Col>
+                                                <Col lg={2} sm={2} className="summary-box col">
+                                                    <p className="m-0">{ageData.months}</p>
+                                                    <p className="m-0">Months</p>
+                                                </Col>
+                                                <Col lg={2} sm={2} className="summary-box col">
+                                                    <p className="m-0">{ageData.days}</p>
+                                                    <p className="m-0">Days</p>
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col className="small">From DOB: {selectedDate}</Col>
+                                            </Row>
                                         </Col>
-                                        <Col lg={2} sm={2} xs={2} className="summary-box">
-                                            <Col lg={12}>{ageData.months}</Col>
-                                            <Col lg={12}>Months</Col>
-                                        </Col>
-                                        <Col lg={2} sm={2} xs={2} className="summary-box">
-                                            <Col lg={12}>{ageData.days}</Col>
-                                            <Col lg={12}>Days</Col>
-                                        </Col>
                                     </Row>
-                                    <Row>
-                                        <Col className="small">From DOB: {selectedDate}</Col>
-                                    </Row>
-                                </Col>
-                            </Row>
-                            <Row className="age-details">
-                                <Col lg={12} className="p-3">
-                                    {
-                                        Object.keys(ageData).map((data) =>{
-                                            return (
-                                                <Row key={data} className="px-2">
-                                                    <Col className="text-start">{data.charAt(0).toUpperCase() + data.slice(1)}</Col>
-                                                    <Col className="text-end">{ageData[data]}</Col>
-                                                </Row>
-                                            );
-                                        })
-                                    }
-                                </Col>
-                            </Row>
-                        </Container>
-                        <Container className={"card-elevated result d-flex flex-column gap-3 mt-3"}>
-                            {nextBirthday &&
-                                <Row className="next-birthday">
-                                    <Col lg={12} className="p-3">
-                                        <Row className="px-2">
-                                            <Col className="text-start h6">Next Birthday</Col>
-                                        </Row>
-                                        <Row className="px-2">
+                                    <Row className="age-details text-dark">
+                                        <Col lg={12} className="p-3">
                                             {
-                                                Object.keys(nextBirthday).map((data) => {
-                                                    if(data !== "weekDay"){
-                                                        return(
-                                                            <Col key={data} lg={2} sm={2} xs={2}>
-                                                                <Col lg={12}>{nextBirthday[data]}</Col>
-                                                                <Col lg={12}>{data.charAt(0).toUpperCase() + data.slice(1)}</Col>
-                                                            </Col>
-                                                        );
-                                                    }
+                                                Object.keys(ageData).map((data) =>{
+                                                    return (
+                                                        <Row key={data} className="px-2">
+                                                            <Col className="text-start">{data.charAt(0).toUpperCase() + data.slice(1)}</Col>
+                                                            <Col className="text-end">{ageData[data]}</Col>
+                                                        </Row>
+                                                    );
                                                 })
                                             }
-                                            <Col>
-                                                <Col>The Birthday is on <b>{nextBirthday.weekDay}</b> this year</Col>
+                                        </Col>
+                                    </Row>
+                                </Container>
+                                <Container className={"card-elevated result d-flex flex-column gap-3 mt-3"}>
+                                    {nextBirthday &&
+                                        <Row className="next-birthday text-dark">
+                                            <Col lg={12} className="p-3">
+                                                <Row className="px-2">
+                                                    <Col className="text-start h6">Next Birthday</Col>
+                                                </Row>
+                                                <Row className="px-2">
+                                                    {
+                                                        Object.keys(nextBirthday).map((data) => {
+                                                            if(data !== "weekDay"){
+                                                                return(
+                                                                    <Col key={data} lg={2} sm={2} className="col p-2 d-flex flex-column justify-content-center">
+                                                                        <p className="m-0">{`${nextBirthday[data]} ${data.charAt(0).toUpperCase() + data.slice(1)}`}</p>
+                                                                    </Col>
+                                                                );
+                                                            }
+                                                        })
+                                                    }
+                                                    <Col className="p-2 d-flex flex-column justify-content-center">
+                                                        <p className="m-0">The Birthday is on <b>{nextBirthday.weekDay}</b> this year</p>
+                                                    </Col>
+                                                </Row>
                                             </Col>
                                         </Row>
-                                    </Col>
-                                </Row>
-                            }
-                        </Container>
-                        <Container className={"d-flex flex-column gap-3 mt-3"}>
-                            <Row className="recalculate">
-                                <Col lg={12} className="text-start">
-                                    <Button onClick={calculateAge}>Recalculate</Button>
-                                </Col>
-                            </Row>
-                        </Container>
+                                    }
+                                </Container>
+                                <Container className={"d-flex flex-column gap-3 mt-3"}>
+                                    <Row className="recalculate">
+                                        <Col lg={12} className="text-start">
+                                            <Button onClick={calculateAge}>Recalculate</Button>
+                                        </Col>
+                                    </Row>
+                                </Container>
+                            </Col>
+                        </Row>
                     </Col>
                 }
             </>
@@ -184,25 +187,27 @@ export default function AgeCalculator() {
 
     return(
         <Row className='justify-content-center flex-column align-items-center gap-3'>
-            <Col lg={6} id="calc-container">
+            <Col lg={12} id="calc-container" className="text-bg-dark rounded">
                 <Container className="age-calculator p-0">
-                    <Form className='p-4 text-bg-dark rounded' noValidate validated={validated} onSubmit={handleSubmit}>
-                        <Row>
-                            <Form.Group as={Col} lg={12} className="justify-content-center text-start d-flex" controlId="dob">
-                                <Form.Label column lg={3}>Date of Birth *</Form.Label>
-                                <Col lg={5}>
-                                    <Form.Control type="date" 
-                                        placeholder="name@example.com" 
-                                        value={selectedDate} 
-                                        onChange={handleDateChange} 
-                                        required
-                                        max={new Date().toISOString().split('T')[0]} 
-                                    />
-                                    <Form.Control.Feedback type="invalid">{error ? error : "Please provide your Date of Birth"}</Form.Control.Feedback>
-                                </Col>
-                                <Col lg={4} className="text-center">
-                                    <Button type="submit" variant="light" onClick={calculateAge}>Calculate</Button>
-                                </Col>
+                    <Form className='p-4' noValidate validated={validated} onSubmit={handleSubmit}>
+                        <Row className="justify-content-center text-start">
+                            <Form.Group as={Col} lg={6} className="justify-content-center text-start d-flex flex-column" controlId="dob">
+                                <Row>
+                                    <Form.Label column lg={3}>Date of Birth *</Form.Label>
+                                    <Col lg={5} className="mb-2">
+                                        <Form.Control type="date" 
+                                            placeholder="name@example.com" 
+                                            value={selectedDate} 
+                                            onChange={handleDateChange} 
+                                            required
+                                            max={new Date().toISOString().split('T')[0]} 
+                                        />
+                                        <Form.Control.Feedback type="invalid">{error ? error : "Please provide your Date of Birth"}</Form.Control.Feedback>
+                                    </Col>
+                                    <Col lg={4} className="text-center">
+                                        <Button type="submit" variant="light" className="w-100" onClick={calculateAge}>Calculate</Button>
+                                    </Col>
+                                </Row>
                             </Form.Group>
                         </Row>
                     </Form>

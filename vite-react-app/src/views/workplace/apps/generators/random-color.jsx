@@ -55,7 +55,7 @@ export default function RandomColorGenerator() {
 
     return(
         <Row className='justify-content-center flex-column align-items-center gap-3'>
-            <Col lg={6} id="converter-container">
+            <Col lg={12} id="converter-container">
                 <Container className="color-converter p-0">
                     <Row className='p-4 rounded text-bg-dark'>
                         <Form.Group as={Row} className="justify-content-center text-start d-flex" controlId="dob">
@@ -64,16 +64,23 @@ export default function RandomColorGenerator() {
                             </Col>
                         </Form.Group>
                     </Row>
+                    
+                </Container>
+            </Col>
+            <Col lg={12} id="result">
+                <Container className="p-0">
                     { result ? 
                         <Row className="justify-content-center text-start d-flex mt-3" >
-                            <Col lg={12} className="p-4 d-flex align-items-center rounded" style={{background: applyColorToResult().background}}>
-                                <Col lg={4}>{result}</Col>
-                                <Col lg={8} className="d-flex gap-2">
-                                    <Button type="submit" variant="light" onClick={handleCopy} title="Copy Result">{isCopied ? <FaCheck /> :<FaRegCopy />}</Button>
-                                    <Button type="submit" variant="light" onClick={convertColorType} title={colorType === 'rgb' ? "Convert to HEX" : "Convert to RGB"}><MdOutlineSwapHorizontalCircle /></Button>
-                                    <Button type="button" variant="light" as={Link} to="/workplace/apps/converters" title="Convert to">See Converter</Button>
-                                    <Button type="submit" variant="light" as={Link} to="/workplace/apps/calculators" title="Convert to">Contrast Checker</Button>
-                                </Col>
+                            <Col lg={12} className="p-4 d-flex align-items-center justify-content-center rounded" style={{background: applyColorToResult().background}}>
+                                <Row>
+                                    <Col lg={4} className="align-content-center"><p className="m-0">{result}</p></Col>
+                                    <Col lg={8} className="d-flex gap-2 flex-column flex-lg-row">
+                                        <Button type="submit" variant="light" onClick={handleCopy} title="Copy Result">{isCopied ? <FaCheck /> :<FaRegCopy />}</Button>
+                                        <Button type="submit" variant="light" onClick={convertColorType} title={colorType === 'rgb' ? "Convert to HEX" : "Convert to RGB"}><MdOutlineSwapHorizontalCircle /></Button>
+                                        <Button type="button" variant="light" as={Link} to="/workplace/apps/converters" title="Convert to">See Converter</Button>
+                                        <Button type="submit" variant="light" as={Link} to="/workplace/apps/calculators" title="Convert to">Contrast Checker</Button>
+                                    </Col>
+                                </Row>
                             </Col>
                         </Row> :""
                     }

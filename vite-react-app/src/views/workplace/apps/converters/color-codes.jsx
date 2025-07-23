@@ -60,9 +60,9 @@ export default function ColorConverter() {
 
     return(
         <Row className='justify-content-center flex-column align-items-center gap-3'>
-            <Col lg={6} id="converter-container">
+            <Col lg={12} id="converter-container" className="text-bg-dark rounded">
                 <Container className="color-converter p-0">
-                    <Form className='p-4 text-bg-dark rounded' noValidate validated={validated} onSubmit={handleSubmit}>
+                    <Form className='p-4 rounded' noValidate validated={validated} onSubmit={handleSubmit}>
                         <Form.Group as={Row} className="justify-content-center text-start d-flex" controlId="dob">
                             <Col lg={4} className="p-4 d-flex align-items-center rounded">
                             <Form.Select aria-label="Default select example" value={colorType} onChange={handleColorTypeChange}>
@@ -80,13 +80,19 @@ export default function ColorConverter() {
                             </Col>
                         </Form.Group>
                     </Form>
+                </Container>
+            </Col>
+            <Col lg={12} id="result">
+                <Container className="p-0">
                     { result !== '' ? 
                         <Row className="justify-content-center text-start d-flex mt-3" >
-                            <Col lg={12} className="p-4 d-flex align-items-center rounded" style={{background: applyColorToResult().background}}>
-                                <Col lg={6} style={{color: applyColorToResult().foreground}}>{colorType === "rgb" ? result : applyColorToResult().background}</Col>
+                            <Col lg={12} className="p-4 d-flex align-items-center justify-content-center rounded" style={{background: applyColorToResult().background}}>
+                                <Row>
+                                    <Col lg={6} style={{color: applyColorToResult().foreground}}>{colorType === "rgb" ? result : applyColorToResult().background}</Col>
+                                </Row>
                             </Col>
                         </Row> :""
-                    }
+                }
                 </Container>
             </Col>
         </Row>

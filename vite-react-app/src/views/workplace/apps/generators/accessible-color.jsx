@@ -80,7 +80,7 @@ export default function AccessibleColorGenerator() {
 
     return(
         <Row className='justify-content-center flex-column align-items-center gap-3'>
-            <Col lg={6} id="converter-container">
+            <Col lg={12} id="converter-container">
                 <Container className="color-converter p-0">
                     <Row className='p-4 rounded text-bg-dark'>
                         <Form.Group as={Row} className="justify-content-center text-start d-flex" controlId="dob">
@@ -89,18 +89,32 @@ export default function AccessibleColorGenerator() {
                             </Col>
                         </Form.Group>
                     </Row>
+                </Container>
+            </Col>
+            <Col lg={12} id="result">
+                <Container className="p-0">
                     { result && result.background && result.foreground ? 
                         <Row className="justify-content-center text-start d-flex mt-3" >
                             <Col lg={12} className="p-4 d-flex align-items-center justify-content-center rounded flex-wrap gap-2" style={{background: applyColorToResult().background}}>
-                                <Col lg={8} style={{color: applyColorToResult().foreground}}>The Background Color is - {applyColorToResult().background}</Col>
-                                <Col lg={8} style={{color: applyColorToResult().foreground}}>The Foreground Color is - {applyColorToResult().foreground}</Col>
-                                <Col lg={8} style={{color: applyColorToResult().foreground}}>The Contrast Ratio is - {result.contrastRatio ? result.contrastRatio : "N/A"}</Col>
-                                <Col lg={8} className="d-flex gap-3">
-                                    <Button type="submit" variant="light" onClick={handleCopy} title="Copy Result">{isCopied ? <FaCheck /> :<FaRegCopy />}</Button>
-                                    <Button type="submit" variant="light" onClick={convertColorType} title={colorType === 'rgb' ? "Convert to HEX" : "Convert to RGB"}><MdOutlineSwapHorizontalCircle /></Button>
-                                    <Button type="button" variant="light" as={Link} to="/workplace/apps/converters" title="Convert to">See Converter</Button>
-                                    <Button type="submit" variant="light" as={Link} to="/workplace/apps/calculators" title="Convert to">Contrast Checker</Button>
-                                </Col>
+                                <Row className="justify-content-center">
+                                    <Col lg={8} style={{color: applyColorToResult().foreground}}>
+                                        <Row>
+                                            <p className="m-0">The Background Color is - {applyColorToResult().background}</p>
+                                        </Row>
+                                        <Row>
+                                            <p className="m-0">The Foreground Color is - {applyColorToResult().foreground}</p>
+                                        </Row>
+                                        <Row>
+                                            <p className="m-0">The Contrast Ratio is - {result.contrastRatio ? result.contrastRatio : "N/A"}</p>
+                                        </Row>
+                                    </Col>
+                                    <Col lg={8} className="d-flex flex-column flex-lg-row gap-3 mt-3">
+                                        <Button type="submit" variant="light" onClick={handleCopy} title="Copy Result">{isCopied ? <FaCheck /> :<FaRegCopy />}</Button>
+                                        <Button type="submit" variant="light" onClick={convertColorType} title={colorType === 'rgb' ? "Convert to HEX" : "Convert to RGB"}><MdOutlineSwapHorizontalCircle /></Button>
+                                        <Button type="button" variant="light" as={Link} to="/workplace/apps/converters" title="Convert to">See Converter</Button>
+                                        <Button type="submit" variant="light" as={Link} to="/workplace/apps/calculators" title="Convert to">Contrast Checker</Button>
+                                    </Col>
+                                </Row>
                             </Col>
                         </Row> :""
                     }
