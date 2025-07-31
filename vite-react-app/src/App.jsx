@@ -19,6 +19,7 @@ import RollADice from './views/workplace/games/roll-a-dice/roll-a-dice';
 import TossACoin from './views/workplace/games/toss-a-coin/toss-a-coin';
 import PigGame from './views/workplace/games/pig-game/pig-game';
 import GuessANumber from './views/workplace/games/guess-a-number/guess-a-number';
+import BMICalculator from './views/workplace/apps/calculators/bmi-calculator';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
             description: "",
             category: "apps",
             type: "calculators",
+            getComponent: ()=> <BMICalculator/>
         },
         {
             title: "Age Calculator",
