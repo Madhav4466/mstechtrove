@@ -23,8 +23,8 @@ export default function Intro() {
                         </h1> 
                     </Row>
                     <Row>
-                        <p className="h4 text-body-secondary">Accessibility Lead</p>
-                        <p className="h6 text-body-secondary">At Tekvision Softtech & Accessibility Solutions LLP</p>
+                        <p className="h4 text-body-secondary">Senior Software Testing Engineer</p>
+                        <p className="h6 text-body-secondary">At EPAM Systems India</p>
                     </Row>
                     <Row className="justify-content-center mt-2">
                         <Col lg={3} sm={3} xs={6} className="w-auto">
