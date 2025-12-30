@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export default function AboutMe() {
     const about = {
         experience: {
-            designation: "Accessibility Lead",
+            designation: "Senior Software Testing Engineer",
             workingSince: "Oct 22, 2018"
         },
         education: {
