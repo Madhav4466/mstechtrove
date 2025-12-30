@@ -11,7 +11,7 @@ export default function Intro() {
             <Col lg={6}>
                     <Row>
                         <Col lg={12} className="intro-pic justify-content-center d-flex align-items-center">
-                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGIVlQYVqzfDw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718211832265?e=1757548800&v=beta&t=vmWuuf8n-_RhSy1MrSoVhfVERuPaAxAOW5Dv0gyR27Q" alt="Madhav Saraf"></img>
+                            <img src="https://d2gjqh9j26unp0.cloudfront.net/profilepic/d1f46e84ba1e37ebb9008725d12d2e59" alt="Madhav Saraf"></img>
                         </Col>
                     </Row>
                 </Col>
