@@ -17,6 +17,7 @@ export default function AboutDetails({about}) {
                     <Row>
                         <span className="text-body-secondary h6">{!error ? `${totalYears}+ Years` : <span className="text-danger">{error}</span>}</span>
                         <span className="text-body-secondary h6">{experience.designation}</span>
+                        <a href="#experience">See All</a>
                     </Row>
                 </Container>
             </Col>
@@ -33,6 +34,7 @@ export default function AboutDetails({about}) {
                     <Row>
                         <span className="text-body-secondary h6">{education.masters}</span>
                         <span className="text-body-secondary h6">{education.bachelor}</span>
+                        <a href="#education ">View Details</a>
                     </Row>
                 </Container>
             </Col>
