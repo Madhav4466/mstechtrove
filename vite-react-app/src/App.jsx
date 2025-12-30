@@ -79,6 +79,13 @@ function App() {
             type: "calculators"
         },
         {
+            title: "Dictionary",
+            imageURL: "https://img.freepik.com/free-vector/hand-draw-glossary-illustration_23-2150297856.jpg?t=st=1767074143~exp=1767077743~hmac=3c0266b9882b53404c489d281e336c7c0a6a75af99eaa4648553399c1ed896e0&w=1480",
+            description: "",
+            category: "apps",
+            type: "learning"
+        },
+        {
             title: "Color Contrast Checker",
             imageURL: "https://img.freepik.com/free-vector/graphic-design-color_24877-82129.jpg?t=st=1736938920~exp=1736942520~hmac=ef553d846a4a7910a968af63bd1311e4adf4085f18d5111f5fe07edfc1548fce&w=740",
             description: "",
