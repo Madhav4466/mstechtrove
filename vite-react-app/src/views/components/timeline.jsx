@@ -4,13 +4,25 @@ import { Col, Row } from "react-bootstrap";
 import { yearAndMonthsCalculator } from "../../scripts/workplace/apps/date-time-calc";
 
 export default function ExperienceTimeline({timeline}) {
-    const workingSince = "Oct 22, 2018";
-    let error = yearAndMonthsCalculator(workingSince).error &&  yearAndMonthsCalculator(workingSince).error;
-    let { years, months } = !yearAndMonthsCalculator(workingSince).error && yearAndMonthsCalculator(workingSince);
+    const computeCompanyExperience = (roleSummary) => {
+        let totalMonths = 0;
+        for (const role of roleSummary) {
+            const start = role.startDate;
+            let end = role.endDate;
+            if (!end) end = undefined;
+            if (typeof end === 'string' && end.toLowerCase().includes('present')) end = undefined;
 
-    return(
-        <Col lg={12}>
-            { timeline.map((exp, expId) => {
+            const res = yearAndMonthsCalculator(start, end);
+            if (res && res.error) return { error: res.error };
+            const y = res.years || 0;
+            const m = res.months || 0;
+            totalMonths += (y * 12) + m;
+        }
+
+        const years = Math.floor(totalMonths / 12);
+        const months = totalMonths % 12;
+        return { years, months };
+    }
                 return (
                     <Fragment key={expId}>
                         <Row>
