@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import '../../styles/components/timeline.css'
+import '../../styles/components/new-timeline.css'
 import { Col, Row } from "react-bootstrap";
 import { yearAndMonthsCalculator } from "../../scripts/workplace/apps/date-time-calc";
 
@@ -62,10 +63,10 @@ export default function ExperienceTimeline({timeline}) {
     }
 
     const oldTimelineStyle = (expId, exp) => {
-                return (
-                    <Fragment key={expId}>
-                        <Row>
-                            <p className="h4 text-body-secondary">{exp.companyName}</p>
+        return (
+            <Fragment key={expId}>
+                <Row>
+                    <p className="h4 text-body-secondary">{exp.companyName}</p>
                     {(() => {
                         const total = computeCompanyExperience(exp.roleSummary);
                         return (
@@ -75,9 +76,9 @@ export default function ExperienceTimeline({timeline}) {
                             </p>
                         )
                     })()}
-                        </Row>
-                        <Row>
-                            <ul>
+                </Row>
+                <Row>
+                    <ul>
                         {exp.roleSummary.map((roleDetails, roleId) => {
                         return (
                             <li
@@ -87,22 +88,43 @@ export default function ExperienceTimeline({timeline}) {
                             <div className="date">
                                 {roleDetails.startDate}
                             </div>
-                                            <div className="title">{roleDetails.role}</div>
-                                            <div className="descr">
-                                                <p>{roleDetails.employmentType}</p>
-                                                <p>{roleDetails.location}</p>
+                            <div className="title">{roleDetails.role}</div>
+                            <div className="descr">
+                                <p>{roleDetails.employmentType}</p>
+                                <p>{roleDetails.location}</p>
                                 <p>
                                 {roleDetails.startDate}-{roleDetails.endDate}
                                 </p>
-                                            </div>
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        </Row>
-                    </Fragment>
+                            </div>
+                            </li>
+                        );
+                        })}
+                    </ul>
+                </Row>
+            </Fragment>
         )
-            }
+    }
+
+    return(
+        <Col lg={12}>
+            <Row>
+                {(() => {
+                    const overall = yearAndMonthsCalculator("Oct 22, 2018", new Date().toDateString());
+                    return (
+                        <p className="h5 text-body-secondary">
+                            Overall Experience: {!overall.error ? (`${overall.years} Years, ${overall.months} Months`) : 
+                            (<span className="text-danger">{overall.error}</span>)}
+                        </p>
+                    );
+                })()}
+            </Row>
+            { timeline.map((exp, expId) => {
+                return (
+                    <Row key={expId} className="justify-content-center">
+                        {newTimelineStyle(exp)}
+                    </Row>
+                ); 
+            })}
         </Col>
     );
 }
