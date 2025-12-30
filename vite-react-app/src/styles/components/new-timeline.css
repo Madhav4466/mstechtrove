@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f6fa;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+/* MAIN CONTAINER */
+.timeline {
+  max-width: 900px;
+  /* margin: 60px auto; */
+  padding: 0 24px;
+}
+
+/* COMPANY GROUP */
+.timeline-group {
+  margin-bottom: 32px;
+}
+
+/* REMOVE DETAILS MARKER */
+.timeline-group summary {
+  list-style: none;
+  cursor: pointer;
+}
+.timeline-group summary::-webkit-details-marker {
+  display: none;
+}
+
+/* COMPANY HEADER */
+.company-header {
+  background: #fff;
+  padding: 18px 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.company-header h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.company-header p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* CHEVRON */
+.chevron {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #6b7280;
+  border-bottom: 2px solid #6b7280;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.timeline-group[open] .chevron {
+  transform: rotate(-135deg);
+}
+
+/* EXPANDABLE CONTENT */
+.timeline-content {
+  position: relative;
+  margin-top: 16px;
+  padding-left: 96px; /* space for timeline */
+  animation: slideDown 0.25s ease;
+}
+
+/* VERTICAL TIMELINE */
+.timeline-content::before {
+  content: "";
+  position: absolute;
+  left: 48px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--timeline-color, #3b82f6);
+  border-radius: 2px;
+}
+
+/* ROLE ITEM */
+.role {
+  position: relative;
+  background: #fff;
+  padding: 18px 20px 18px 20px;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  text-align: start;
+}
+
+/* DATE NODE (PER ROLE) */
+.role-date {
+  position: absolute;
+  left: -70px;
+  top: 18px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--timeline-color, #3b82f6);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  z-index: 2;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+
+.role-date .month {
+  font-size: 10px;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.role-date .day {
+  font-size: 16px;
+  line-height: 1.1;
+}
+
+/* CONNECTING DOT */
+.role::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 36px;
+  width: 10px;
+  height: 10px;
+  background: var(--timeline-color, #3b82f6);
+  border-radius: 50%;
+}
+
+/* ROLE CONTENT */
+.role .time {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.role h4 {
+  margin: 4px 0;
+  font-size: 15px;
+}
+
+.role p {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ANIMATION */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .timeline-content {
+    padding-left: 72px;
+  }
+
+  .timeline-content::before {
+    left: 34px;
+  }
+
+  .role-date {
+    left: -58px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .role::before {
+    left: -36px;
+  }
+
+  .company-header {
+    padding: 14px 16px;
+  }
+}
